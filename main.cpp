@@ -1,35 +1,31 @@
 #include <bits/stdc++.h>
 
+const int MAXN = 1e6+5;
 using namespace std;
-int m, n;
-vector<int> v1, v2;
-bool c[100001];
+struct node{
+	int x, y;
+}a[MAXN];
+bool cmp(node a, node b) {
+	return a.x < b.x;
+}
+int dp[MAXN];
+int n;
+int ans;
+int LIS1() {
+	for(int i = 0; i < n; i++) {
+		dp[i] = 1;
+		for (int j = 0; j < i; j++)
+			if (a[i].y > a[j].y) dp[i] = max(dp[j] + 1, dp[i]);
+	}
+	for(int i = 0; i < n; i++) ans = max(ans, dp[i]);
+	return ans;
+}
+
+
 int main() {
-	cin >> m >> n;
-	for(int i = 0; i < m; i++) {
-		int _t;
-		cin >> _t;
-		v1.push_back(_t);
-	}
-	for(int i = 0; i < n; i++) {
-		int _t;
-		cin >> _t;
-		v2.push_back(_t);
-	}
-	sort(v1.begin(), v1.end());
-	sort(v2.begin(), v2.end());
-	int sum = 0;
-	for(int i = 0; i < n; i++) {
-		int minn = 100001;
-		for(int j = 0; j < m; j++) {
-			if(v2[i] - v1[j] < minn && v2[i] > v1[j] && !c[j]) {
-				minn = v2[i] - v1[j];
-				v2[i] -= v1[j];
-				sum++;
-				c[i] = true;
-			}
-		}
-	}
-	cout << sum;
+	cin >> n;
+	for(int i = 0; i < n; i++) cin >> a[i].x >> a[i].y;
+	sort(a, a + n, cmp);
+	cout << LIS1();
 	return 0;
 }
