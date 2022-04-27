@@ -1,5 +1,6 @@
 ### 【TeacherXu】洛谷精选提单
 
+
 [1【Tea徐】入门组训练（数组1）](https://www.luogu.com.cn/training/9040)
 
 [2【Tea徐】入门组训练（数组2）](https://www.luogu.com.cn/training/9506)
