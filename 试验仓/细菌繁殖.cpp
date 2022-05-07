@@ -1,12 +1,16 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 int n;
 int sum = 1;
-int main() {
+int main()
+{
 	cin >> n;
-	for(int i = 1;; i++) {
-		if(sum == n) {
+	for (int i = 1;; i++)
+	{
+		if (sum >= n)
+		{
 			cout << i << endl;
 			return 0;
 		}
@@ -14,4 +18,3 @@ int main() {
 	}
 	return 0;
 }
-
