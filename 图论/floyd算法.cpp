@@ -25,7 +25,7 @@ int main() {
     }
     floyd();
     cin >> s >> t;
-    cout << fixed << setprecision(5) << dis[s][t];
+    cout << fixed << setprecision(2) << dis[s][t];
     return 0;
 }
 
