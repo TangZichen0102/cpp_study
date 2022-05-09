@@ -37,8 +37,7 @@ int dijkstra() {
 	return dist[n];
 }
 
-int main()
-{
+int main() {
 	scanf("%d%d", &n, &m);
 	memset(h, -1, sizeof h);
 	while (m--) {
