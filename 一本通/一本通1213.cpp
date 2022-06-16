@@ -11,7 +11,7 @@ void print()
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
-            cout << v[j][i] << " ";
+            cout << v[i][j] << " ";
         cout << endl;
     }
 }
@@ -38,8 +38,7 @@ void dfs(int row)
         }
 }
 
-int main()
-{
+int main() {
     dfs(0);
     return 0;
 }
