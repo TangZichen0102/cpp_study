@@ -1,35 +1,39 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-string _Itoa(int n, int m) {
-    string _s;
-    do{
-        int t = n % m;
-        if(t >= 0 && t <= 9) _s += t + '0';
-        else _s += t - 10 + 'a';
-        n /= m;
-    }while(n != 0);
-    reverse(_s.begin(), _s.end());
-    return _s;
-}
-int n;
-int a;
-int main() {
-    cin >> n;
-    while(true) {
-        cin >> a;
-        string s2 = _Itoa(a, 2);
-        if(a == 0) return 0;
-        for(int i = a + 1; ; i++) {
-            string s = _Itoa(i, 2);
-            int sum1 = 0, sum2 = 0;
-            for(int j = 0; j < s.size(); j++)
-                if(s[i] == '1') sum1++;
-            for(int j = 0; j < s2.size(); j++)
-                if(s2[i] == '1') sum2++;
-            cout << s << " " << s2 << endl << sum1 << " " << sum2 << endl;
-            if(sum1 == sum2) {
-                cout << i << endl;
+int a[1000005], i;
+int main()
+{
+    for (i = 0;; i++)
+    {
+        cin >> a[i];
+        if (a[i] == 0)
+            break;
+    }
+    int k = 0; 
+    while (i--)
+    {
+        int sum = 0, sum1 = 0, d, b;
+        d = a[k];
+        while (d)
+        {
+            if (d % 2 == 1)
+                sum++;
+            d = d / 2;
+        }
+        for (int z = a[k] + 1;; z++)
+        {
+            sum1 = 0;
+            int z1 = z;
+            while (z1)
+            {
+                if (z1 % 2 == 1)
+                    sum1++;
+                z1 = z1 / 2;
+            }
+            if (sum == sum1)
+            {
+                cout << z << endl;
+                k++;
                 break;
             }
         }
