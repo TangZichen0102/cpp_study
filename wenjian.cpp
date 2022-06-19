@@ -1,30 +1,30 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int n, m, k;
-struct node {
-    int x, y;
-    char name, flag;
-}a[55];
-string Map[55];
-int main() {
-    cin >> n >> m >> k;
-    for(int i = 0; i < k; i++) {
-        cin >> a[i].x >> a[i].y >> a[i].name >> a[i].flag;
-        if(a[i].flag == 'R') 
-            for(int j = a[i].y - 1; j < m; j++) Map[a[i].x - 1][j] = a[i].name;
-        else if(a[i].flag == 'U')
-            for(int j = a[i].x - 1; j >= 0; j--) Map[j][a[i].y - 1] = a[i].name; 
-        else if(a[i].flag == 'L')
-            for(int j = a[i].y - 1; j >= 0; j--) Map[a[i].x - 1][j] = a[i].name;
-        else
-            for(int j = a[i].x - 1; j < n; j++) Map[j][a[i].x - 1] = a[i].name;
-    }
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
-            cout << Map[i][j] << " ";
+int n;
+// string s = "0123456789abcdefghijklmnopqrstuvwxyz";
+string s = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+string _Itoa(int n, int m) {
+    string _s;
+    do{
+        int t = n % m;
+        if(t >= 0 && t <= 36) _s += s[t];
+        n /= m;
+    }while(n != 0);
+    reverse(_s.begin(), _s.end());
+    return _s;
+}
+int main()
+{
+    cin >> n;
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << _Itoa(i,n) << '*' << _Itoa(j,n) << '=';
+            string s = _Itoa(i * j, n);
+            cout << s << " ";
         }
         cout << endl;
-    } 
+    }
     return 0;
 }
