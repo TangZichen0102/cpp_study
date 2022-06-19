@@ -8,9 +8,6 @@ struct node {
 }a[55];
 string Map[55];
 int main() {
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) Map[i][j] = '.';
-    }
     cin >> n >> m >> k;
     for(int i = 0; i < k; i++) {
         cin >> a[i].x >> a[i].y >> a[i].name >> a[i].flag;
@@ -25,8 +22,7 @@ int main() {
     }
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
-            if(Map[i][j] != '.') cout << Map[i][j] << " ";
-            else cout << '.' << " ";
+            cout << Map[i][j] << " ";
         }
         cout << endl;
     } 
