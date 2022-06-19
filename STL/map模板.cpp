@@ -15,6 +15,8 @@ int main()
     // 1 10
     // 10 10
 
+    cout << tong1.begin()->first << " " << (*tong1.begin()).second<< endl; //输出第一个元素
+
     map<int, int, greater<int>> tong2; //以大到小排序
     tong2[1] = 10;
     tong2[10] = 10;
