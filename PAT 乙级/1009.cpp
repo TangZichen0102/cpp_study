@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-string s;
-string s2[85];
-int cnt = 0;
+vector<string> ans;
 int main() {
-    cin >> s;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == ' ') cnt++, i++;
-        else {
-            for(int j = i; s[j] != ' '; j++) s2[cnt] += s[j];
-        }
+    string s, x;
+    getline(cin, s);
+    stringstream l(s);
+    while(l >> x) ans.push_back(x);
+    for(int i = ans.size() - 1; i >= 0; i--) {
+        cout << ans[i];
+        if(i) cout << " ";
     }
-    for(int i = cnt - 1; i >= 0; i--) cout << s2[i] << " ";
     return 0;
 }
