@@ -1,21 +1,22 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n;
-string _t;
+
 int main() {
-    for(int i = 0; i < n; i++) {
-        cin >> _t;
-        unordered_map<char, int> m;
-        for(int j = 0; j < n; j++) {
-            m[_t[j]]++;
-            if(_t[j] != 'P' && _t[j] != 'A' && _t[j] != 'T') {
-                cout << "NO" << endl;
-                break;
-            }
+    int n;
+    cin >> n;
+    while(n--) {
+        string s;
+        cin >> s;
+        map<char, int> mp;
+        int l = 0, r = 0;
+        for(int i = 0; i < s.size(); i++) {
+            mp[s[i]]++;
+            if(s[i] == 'P') l = i;
+            if(s[i] == 'T') r = i;
         }
-        if(m['A'] >= 1 && m['P'] >= 1 && m['T'] >= 1) cout << "YES" << endl;
-        else cout << "NO" << endl; 
+        if(mp['P'] == 1 && mp['T'] == 1 && mp['A'] >= 1 && mp.size() == 3 && (r - l - 1) >= 1 && l * (r - l - 1) == s.size() - 1 - r) cout << "YES"  << endl;
+        else cout << "NO" << endl;
     }
     return 0;
 }
