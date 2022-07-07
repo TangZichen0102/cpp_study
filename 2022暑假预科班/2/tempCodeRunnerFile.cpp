@@ -14,7 +14,7 @@ void check(int i) {
         cout << "YES" << endl;
         return;
     }
-    if ((a[i] % 3 == 2 && b[i] % 3 == 1) || (a[i] % 3 == 1 && b[i] % 3 == 2)) {
+    if ((a[i] % 3 == 2 && a[i] % 3 == 1) || (a[i] % 3 == 1 && a[i] % 3 == 2)) {
         cout << "YES" << endl;
         return;
     }
