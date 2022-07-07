@@ -37,17 +37,18 @@ int main()
 #endif
     int n;
     cin >> n;
-    string ss[105];
+    string ss;
     for (int i = 0; i < n; ++i)
     {
-        cin >> ss[i];
+        cin >> ss;
+        cout << (check(ss) ? "YES" : "NO") << endl;
     }
 
-    for (int i = 0; i < n; ++i)
-    {
-        cout << (check(ss[i]) ? "YES" : "NO") << endl;
-    }
+    return 0;
+}
 
+void demo()
+{
     //    string s = "BANANAS";
     //    cout << s.substr(1, s.length() - 2) << endl;
     //
@@ -55,5 +56,4 @@ int main()
     //    int i = 1;
     //    cout << s2.substr(0, i) << endl;
     //    cout << s2.substr(i + 1, s2.length() - i - 1) << endl;
-    return 0;
 }
