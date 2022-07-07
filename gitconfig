@@ -1,0 +1,37 @@
+[user]
+	name = TT
+	email = tt-tjw@qq.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = manager
+[core]
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	ignorecase = false
+	longpaths = true
+[diff]
+	guitool = vscode
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+[merge]
+	tool = vscode
+	guitool = vscode
+[http]
+	postBuffer = 524288000
+[difftool "vscode"]
+	path = D:/Programs/Microsoft VS Code/Code.exe
+	cmd = \"D:/Programs/Microsoft VS Code/Code.exe\" --wait --diff \"$LOCAL\" \"$REMOTE\"
+[mergetool "vscode"]
+	path = D:/Programs/Microsoft VS Code/Code.exe
+	cmd = "/D:/Programs/Microsoft VS Code/Code.exe/ --wait /$MERGED/ "
+[http "https://github.com"]
+	proxy = socks5://127.0.0.1:10808
+[https "https://github.com"]
+	proxy = socks5://127.0.0.1:10808
