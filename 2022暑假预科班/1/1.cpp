@@ -13,7 +13,8 @@ bool check(string s)
         return true;
     if (s[0] == 'B' && s[s.length() - 1] == 'S')
     {
-        if (check(s.substr(1, s.length() - 2)))
+        string f = s.substr(1, s.length() - 2);
+        if (check(f))
             return true;
     }
     for (int i = 0; i < s.length(); ++i)
