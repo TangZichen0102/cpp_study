@@ -3,10 +3,6 @@
 
 using namespace std;
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
 bool check(string s)
 {
     if (s == "A")
