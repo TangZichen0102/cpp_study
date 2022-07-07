@@ -1,14 +1,32 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int a, b, c;
+int n;
+int a, b;
 
-void p(int &x, int y) {
-	int m , n;
-	m = x * y; x += 5; y += 5; n  = x* y;
-	cout << setw(4) << m << setw(4) << n << endl;
-}
-int main() {
-	a = 3; b= 3; p(a, b); p(a, b);
+int main()
+{
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a >> b;
+		if (a == 0 && b == 0)
+		{
+			cout << "YES";
+			break;
+		}
+		else if ((a == 0 && b != 0) || (a != 0 && b == 0))
+		{
+			cout << "NO";
+			break;
+		}
+		else if ((a / 1 == b / 2) || (a / 2 == b / 1) || (a / 3 == b / 3))
+		{
+			cout << "YES";
+			break;
+		}
+		else
+			cout << "NO";
+	}
 	return 0;
 }
