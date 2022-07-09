@@ -1,16 +1,25 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int a[5][5];
-
-int nmain() {
-    for(int i = 1; i <= 3; i++) {
-        for(int j = 1; j <=3; j++) {
-            if(i == 3) a[i][j] = a[i - 1][a[i - 1][j]] + 1;
-            else a[i][j] - j;
-            cout << setw(2) << a[i][j];
+int k, n, x[510], w[510];
+int main() {
+    cin >> n;
+    for(int i = 1; i <= n; i++) x[i] = 0, w[i] = 1;
+    for(int i = 2; i <= int(sqrt(n)) + 1; i++) {
+        if(x[i] == 0) {
+            k = i * i;
+            while(k <= n) {
+                x[k] = i;
+                k += i;
+            }
         }
-        cout << endl;
     }
+    for(int i = n; i >= 1; i--)
+        if(x[i] != 0) {
+            w[x[i]] += w[i];
+            w[i / x[i]] += w[i];
+            w[i] = 0;
+        }
+    cout << w[2] << setw(5) << w[3] << setw(5) << w[5] << endl;
     return 0;
 }
