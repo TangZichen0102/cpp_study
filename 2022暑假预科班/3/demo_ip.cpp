@@ -11,13 +11,6 @@ struct IP
         printf("%d.%d.%d.%d\n", p1, p2, p3, p4);
     }
 
-    operator==(IP a)
-    {
-        return p1 == a.p1 &&
-               p2 == a.p2 &&
-               p3 == a.p3 &&
-               p4 == a.p4;
-    }
 };
 
 bool isEquel(IP a, IP b)
