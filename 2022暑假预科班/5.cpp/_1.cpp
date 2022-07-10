@@ -9,7 +9,7 @@ int main()
 {
 
 #ifndef ONLINE_JUDGE
-    freopen("_1.in", "r", stdin);
+    freopen("1.in", "r", stdin);
 #endif
 
     cin >> X >> Y >> Z >> N;
@@ -54,10 +54,10 @@ int main()
             }
             cout << (flag ? "x" : ".");
         }
-        cout << endl;
+        puts("");
     }
-
-    cout << endl;
+    puts("");
+    // cout << endl;
     for (int z = 1; z <= Z; z++)
     {
         for (int x = 1; x <= X; x++)
