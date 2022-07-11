@@ -1,25 +1,17 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int k, n, x[510], w[510];
+int m[4];
+int a;
 int main() {
-    cin >> n;
-    for(int i = 1; i <= n; i++) x[i] = 0, w[i] = 1;
-    for(int i = 2; i <= int(sqrt(n)) + 1; i++) {
-        if(x[i] == 0) {
-            k = i * i;
-            while(k <= n) {
-                x[k] = i;
-                k += i;
-            }
-        }
-    }
-    for(int i = n; i >= 1; i--)
-        if(x[i] != 0) {
-            w[x[i]] += w[i];
-            w[i / x[i]] += w[i];
-            w[i] = 0;
-        }
-    cout << w[2] << setw(5) << w[3] << setw(5) << w[5] << endl;
+    while(cin >> a) m[a]++;
+    int sum = 0;
+    sum += m[4];
+    sum += min(m[3], m[1]);
+    m[3] -= min(m[3], m[1]);
+    m[1] -= min(m[3], m[1]);
+    sum += m[2] / 2;
+    m[2] = m[2] % 2;
+    cout << sum + m[1] + m[2] + m[3] + m[4];
     return 0;
 }
