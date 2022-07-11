@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int a[100005];
-int n;
-int sum;
+int m[4];
+int a;
 int main() {
-    while(cin >> a[n]) n++;
-    sort(a, a + n);
-    for(int i = n - 1; i >= 0; i--) {
-        for(int j = 0; j < n; j++) if()
-    }
+    while(cin >> a) m[a]++;
+    int sum = 0;
+    sum += m[4];
+    sum += min(m[3], m[1]);
+    m[3] -= min(m[3], m[1]);
+    m[1] -= min(m[3], m[1]);
+    sum += m[2] / 2;
+    m[2] = m[2] % 2;
+    cout << sum + m[1] + m[2] + m[3] + m[4];
     return 0;
 }
