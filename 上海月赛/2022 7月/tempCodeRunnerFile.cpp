@@ -1,1 +1,2 @@
-r
+
+            if (a[s.first].size())
