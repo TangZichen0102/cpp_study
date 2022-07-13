@@ -81,7 +81,8 @@
         "variant": "cpp",
         "resumable": "cpp",
         "xmemory0": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stack": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
