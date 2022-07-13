@@ -33,10 +33,10 @@ int main() {
     int y, frist, days;
     cin >> y;
     for(int i = 1; i <= 12; i++) {
-        cout << "-----------------------------" << endl;
+        cout << "----------------------------" << endl;
         cout << y << '/' << i << endl;
-        cout << "-----------------------------" << endl;
-        cout << "Sun Mon Tue Wed Ths Fri Sat" << endl;
+        cout << "----------------------------" << endl;
+        cout << "Sun Mon Tue Wed Thr Fri Sat" << endl;
         frist = weekday_of_the_frist_day(y, i);
         days = days_of_month(y, i);
         for(int i = 0; i < frist; i++) cout << "    ";
