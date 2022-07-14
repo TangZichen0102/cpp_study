@@ -3,7 +3,7 @@
 using namespace std;
 int k;
 string s1, s2;
-unordered_map<char, int> m = {
+unordered_map <char, int> m = {
     {'0', 0}, 
     {'1', 1}, 
     {'2', 2}, 
@@ -48,15 +48,12 @@ void fun(string a, string b, int k)
     b = '0' + b;
     if (a.size() < b.size())
         swap(a, b);
-    string ans="";
-    for(int i = 0; i < a.size(); i++) ans += '0';
+    string ans(a.size(), '0');
     int _t = b.size();
     int flag = 0;
     for (int i = 0; i < a.size() - _t; i++) b = '0' + b;
-    // cout << a << " " << b << endl;
     for (int i = a.size() - 1; i >= 0; i--) {
         int sum = m[a[i]] + m[b[i]] + flag;
-        // cout << sum << " ";
         if(sum >= k) flag = 1;
         else flag = 0;
         ans[i] = s[sum % k];
@@ -72,11 +69,5 @@ int main()
 #endif
     cin >> k >> s1 >> s2;
     fun(s1, s2, k);
-
-
-    // for(auto i :m)
-    // {
-    //     cout << i.first << " "<< i.second <<endl;
-    // }
     return 0;
 }
