@@ -17,9 +17,17 @@ int main() {
         string s = to_string(_t);
         int sum = 1;
         for(int j = 0; j < s.size(); j++) sum *= s[j] - '0';
-        if(m[sum] == 0) m[sum]++, ans++;
-        else if(m[sum] >= maxn && sum <= minn) minn = sum, maxn = m[sum];
+        m[sum]++; 
     }
-    cout << ans << " " << minn;
+    for(auto j:m) {
+        if(j.second >= maxn) { 
+            maxn = j.second;
+        }
+    }
+    for(auto j:m) {
+        if(j.second == maxn) minn = min(minn, j.first);
+    }
+            // cout << j.first << ":" << j.second << endl;
+    cout << m.size() << " " << minn;
     return 0;
 }
