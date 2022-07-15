@@ -11,24 +11,30 @@ int main() {
     cin >> m >> n;
     for(int i = 0; i < m; i++) b[i] = -1;
     for(int i = 0; i < m; i++) {
-        for(int j = 0; j < n; j++) cin >> a[i][j];
+        for(int j = 0; j < n; j++)
+            cin >> a[i][j];
     }
+    // for(int i = 0; i < m; i++) {
+    //     for(int j = 0; j < n; j++) cout << a[i][j] << " ";
+    //     cout << endl;
+    // }
     for(int i = 0; i < m; i++) {
-        int col = i + 1;
-        int row = 0;
+        int col = i;
         for(int j = 0; j < n; j++) {
-            col += a[row][j + a[row][j]];
-            cout << col << ":" << a[row][j] << " " << a[row][j + a[row][j]] << " " << row << " " << j + a[row][j] << endl;
-            if(col >= n || col <= 0 || a[row][j] != a[row][j + a[row][j]]) {
+            printf("i:%d j:%d col:%d\n", i, j, col);
+            if(a[j][col] != a[j][col + a[j][col]]) {
                 col = -1;
-                cout << -1 << " ";
                 break;
             }
-            row++;
+            col += a[j][col];
+            if(col >= m || col <= 0) {
+                col = -1;
+                break;
+            }
         }
         cout << endl;
         b[i] = col;
     }
-    for(int i = 0; i < n; i++) cout << b[i] << " ";
+    for(int i = 0; i < n; i++) cout << b[i] << endl;
     return 0;
 }
