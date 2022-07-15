@@ -18,21 +18,21 @@ int main() {
     //     for(int j = 0; j < n; j++) cout << a[i][j] << " ";
     //     cout << endl;
     // }
-    for(int i = 0; i < m; i++) {
+    for(int i = 0; i < n; i++) {
         int col = i;
-        for(int j = 0; j < n; j++) {
-            printf("i:%d j:%d col:%d\n", i, j, col);
+        for(int j = 0; j < m; j++) {
+            // printf("i:%d j:%d col:%d\n", i, j, col);
             if(a[j][col] != a[j][col + a[j][col]]) {
                 col = -1;
                 break;
             }
             col += a[j][col];
-            if(col >= m || col <= 0) {
+            if(col >= n || col < 0) {
                 col = -1;
                 break;
             }
         }
-        cout << endl;
+        // cout << endl;
         b[i] = col;
     }
     for(int i = 0; i < n; i++) cout << b[i] << endl;
