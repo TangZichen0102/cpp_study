@@ -1,29 +1,41 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-string s;
 int maxn = INT_MIN;
-int main() {
+
+int check(string source, string a)
+{
+    int sum = 1, step = a.size();
+    for (int j = step; j <= source.size(); j += step)
+    {
+        if (source.find(a, j) == j)
+        {
+            sum++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return sum;
+}
+
+int main()
+{
 #ifndef ONLINE_JUDGE
     freopen("4.in", "r", stdin);
 #endif
+    string s;
+
     cin >> s;
-    for(int i = 0; i < s.size(); i++) {
-        string S;
-        for(int j = 0; j <= i; j++) S += s[j];
-        // cout << S << endl;
-        int sum = 0;
-        for(int j = S.size(); j <= s.size();) {
-            if(s.find(S, j) == j) {
-                sum++;
-                j += S.size();
-            }
-            else {
-                maxn = max(maxn, sum);
-                break;
-            }
+    for (int i = 0; i < s.size(); i++)
+    {
+        string a = s.substr(0, i + 1);
+        if (check(s, a) > 1)
+        {
+            cout << check(s, a);
+            break;
         }
     }
-    cout << maxn + 1;
     return 0;
 }
