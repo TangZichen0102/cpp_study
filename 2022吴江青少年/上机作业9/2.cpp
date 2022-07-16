@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, m, d;
+int n, d;
 void tri(int n, int k) {
 	for(int i = 1; i <= n; i++) {
 		for(int j = 1; j <= n - i + k; j++) cout << " ";
@@ -19,7 +19,7 @@ void christmas_tree(int n, int m, int d) {
 	}
 }
 int main() {
-	cin >> n >> m >> d;
-	christmas_tree(n, m, d);
+	cin >> d;
+	christmas_tree(d, 3, 2);
 	return 0;
 }
