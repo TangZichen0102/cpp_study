@@ -1,27 +1,38 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-bool compare(int m, int n) {
-	string s1, s2, s3, s4;
-	s1 = to_string(m);
-	s2 = to_string(n);
-	s3 = s1 + s2;
-	s4 = s2 + s1;
-	if(s3 > s4) return true;
-	else return false;
+bool pd(char a, char b)
+{
+	if ((a == 'R' && b == 'S') || (a == 'S' && b == 'P') || (a == 'P' && b == 'R'))
+		return 1;
+	else if ((b == 'R' && a == 'S') || (b == 'S' && a == 'P') || (b == 'P' && a == 'R'))
+		return 0;
 }
-int n, t;
-int a[1005];
-int main() {
-	cin >> n;
-	for(int i = 0; i < n; i++) cin >> a[i];
-	for(int i = 0; i < n - 1; i++)
-		for(int j = 0; j < n - 1 + i; j++)
-			if(compare(a[j], a[j + 1]) == false) {
-				t = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = t;
-			}
-	for(int i = 0; i < n; i++) cout << a[i];
+int main()
+{
+	char a;
+	int n, c, d, x1 = 0, x2 = 0;
+	string x, y;
+	cin >> n >> c >> d;
+	for (int i = 1; i <= c; i++)
+		cin >> a, x += a;
+	for (int i = 1; i <= d; i++)
+		cin >> a, y += a;
+	for (int i = 1; i <= n / c; i++)
+		x += x;
+	for (int i = 1; i <= n / d; i++)
+		y += y;
+	for (int i = 1; i <= n; i++)
+	{
+		if (pd(x[i], y[i]) == 1)
+			x1++;
+		else if (pd(x[i], y[i]) == 0)
+			x2++;
+	}
+	if (x1 > x2)
+		cout << 'A';
+	else if (x1 < x2)
+		cout << 'B';
+	else
+		cout << 'T';
 	return 0;
 }
