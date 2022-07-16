@@ -30,6 +30,7 @@ int main() {
     }
     for(int i = b.size() - 1; i >= 0; i--)
         for(int j = 0; j < b[i].size(); j++) ans.push_back(b[i][j]);
+        
     for(int i = 0; i < n - 1; i++) printf("%05d %d %05d\n", ans[i], nodes[ans[i]].data, ans[i + 1]);
     printf("%05d %d -1\n", ans[ans.size() - 1], nodes[ans[ans.size() - 1]].data);
     return 0;
