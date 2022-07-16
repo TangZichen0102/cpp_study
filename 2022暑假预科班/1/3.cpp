@@ -7,7 +7,7 @@ int maxn = INT_MAX;
 int x, y;
 int sumb, suma;
 
-void fun1(int i, int j)
+void fun(int i, int j)
 {
     suma = 0;
     for (int k = i; k < i + r; k++)
@@ -49,7 +49,7 @@ int main()
         for (int j = 0; j < n - c + 1; j++)
         {
             suma = 0;
-            fun1(i, j);
+            fun(i, j);
         }
     for (int i = 0; i < r; i++)
     {

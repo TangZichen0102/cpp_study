@@ -23,7 +23,7 @@ int main()
         a[a[num].pre].nxt = a[num].nxt, a[a[num].nxt].pre = a[num].pre;
         if (a[num].pre == -1)
         {
-            a[num].pre = a[num].nxt;
+            a[num].pre = a[num].nxt;s
         }
         if (a[num].nxt == -1)
         {
