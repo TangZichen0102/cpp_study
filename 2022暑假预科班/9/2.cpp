@@ -14,25 +14,16 @@ int main() {
         for(int j = 0; j < n; j++)
             cin >> a[i][j];
     }
-    // for(int i = 0; i < m; i++) {
-    //     for(int j = 0; j < n; j++) cout << a[i][j] << " ";
-    //     cout << endl;
-    // }
-    for(int i = 0; i < n; i++) {
+    for(int i = 0;  i < n; i++) {
         int col = i;
-        for(int j = 0; j < m; j++) {
-            // printf("i:%d j:%d col:%d\n", i, j, col);
-            if(a[j][col] != a[j][col + a[j][col]]) {
-                col = -1;
-                break;
-            }
-            col += a[j][col];
-            if(col >= n || col < 0) {
+        for (int j = 0; j < m; j++) {
+            int dir = a[j][col];
+            col += dir;
+            if(col < 0 || col >= n || a[j][col] != dir) {
                 col = -1;
                 break;
             }
         }
-        // cout << endl;
         b[i] = col;
     }
     for(int i = 0; i < n; i++) cout << b[i] << endl;

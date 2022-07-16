@@ -1,30 +1,25 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, k; 
-int a[1005];
-int b[1005];
-int cnt = 0;
+int n, m;
+int a[1005], b[1005];
 int main() {
-	cin >> n >> k;
+	cin >> n >> m;
 	int ans = n;
-	int cnt = 0;
 	for(int i = 1; i <= n; i++) a[i] = i;
-	while(ans == 1) {
+	int cnt = 0;
+	while(ans != 0) {
+		// cout << "11" << endl;
 		for(int i = 1; i <= n; i++) {
 			if(b[i] == 1) continue;
-			if(cnt % k == 0) {
-				b[cnt] = 1;
-				cnt -= k;
+			cnt++;
+			if(cnt == m) {
+				cnt = 0;
 				ans--;
-				continue;
+				cout << a[i] << " ";
+				b[i] = 1;
 			}
 		}
 	}
-	for(int i = 1; i <= n; i++)
-		if(b[i] == 0) {
-			cout << a[i];
-			return 0;
-		}
 	return 0;
 }
