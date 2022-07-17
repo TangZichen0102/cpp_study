@@ -12,8 +12,7 @@ void print(int a)
     cout << a << endl;
     for (int i = 1; i <= n; i++)
         printf("pre:%d nxt:%d\n", nodes[i].pre, nodes[i].next);
-    puts("");
-
+    
 }
 
 int main()
