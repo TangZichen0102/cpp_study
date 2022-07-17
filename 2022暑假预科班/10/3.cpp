@@ -3,7 +3,7 @@
 using namespace std;
 struct node {
     int pre, next;
-} nodes[100001];
+} nodes[200005];
 void insert_left(int s, int i) {
     nodes[nodes[s].pre].next = i;
     nodes[i].pre = nodes[s].pre;

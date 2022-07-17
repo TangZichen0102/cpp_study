@@ -14,6 +14,9 @@ string _Itoa(int n, int m) {
     return _s;
 }
 int main() {
+#ifndef ONLIEN_JUDGE
+    freopen("1.in", "r", stdin);
+#endif
     cin >> n;
     for(int i = 0; i < n; i++) {
         int k, t;
@@ -21,7 +24,7 @@ int main() {
         string s = _Itoa(t, k);
         int flag = 0;
         for(int i = 0; i < s.size(); i++) {
-            if(s[i] != '1' && s[i] != ((k - 1) + '0') && s[i] != '0') {
+            if(s[i] != '1' && (s[i] != ((k - 1) + '0') && s[i - 1] != '0') && s[i] != '0') {
                 flag = 1;
                 cout << "No" << endl;
                 break;
