@@ -15,7 +15,7 @@ LL qmi(int a, int b)
     return res;
 }
 
-void dfs(int deep, int curNum, LL curSum)
+void dfs(int deep, LL curNum, LL curSum)
 {
     if (deep > n)
     {
