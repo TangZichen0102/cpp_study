@@ -82,7 +82,8 @@
         "resumable": "cpp",
         "xmemory0": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "xiosbase": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
