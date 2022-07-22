@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int MAXN = 100005;
+const int MAXN = 1000005;
 bool prime[MAXN];
 vector<int> v;
 void is_prime() {
@@ -18,9 +18,9 @@ int main() {
     int n, m;
     cin >> n >> m;
     int cnt = 1;
-    for(int i = n; i < m; i++) {
-        if(cnt % 10 == 0) cout << v[i - 1] << endl;
-        else cout << v[i - 1] << " ";
+    for(int i = n - 1; i < m - 1; i++) {
+        if(cnt % 10 == 0) cout << v[i] << endl;
+        else cout << v[i] << " "; 
         cnt++;
     }
     cout << v[m - 1];
