@@ -2,18 +2,18 @@
 
 using namespace std;
 int my_atoi(string s) {
-	int sum = 0;
-	int flag = 0;
+	long long sum = 0;
+	int flag = 1;
 	for(int i = 0; i < s.size(); i++) {
-		if(s[i] == '-' && flag == 0)
-			flag = 1;
+		if(s[i] != '-' && s[i] != '+' && s[i] != ' ' && (s[i] < '0' || s[i] > '9')) return 0;
+		if(s[i] == '-' && flag == 1)
+			flag = -1;
 		if(s[i] >= '0' && s[i] <= '9') {
 			sum *= 10;
 			sum += s[i] - '0';
 		}
 	}
-	if(flag == 1) return -sum;
-	return sum;
+	return sum * flag;
 }
 int main() {
 	string s;

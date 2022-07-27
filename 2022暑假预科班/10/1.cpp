@@ -1,36 +1,29 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n;
-string _Itoa(int n, int m) {
-    string _s;
-    do{
-        int t = n % m;
-        if(t >= 0 && t <= 9) _s += t + '0';
-        else _s += t - 10 + 'a';
-        n /= m;
-    }while(n != 0);
-    reverse(_s.begin(), _s.end());
-    return _s;
+long long n, res[35];
+long long w, t;
+bool check() {
+    for(int i = 1; i <= 32; i++) {
+        if(res[i] == w - 1 || res[i] == w) res[i + 1]++;
+        else if(res[i] != 1 && res[i] != 0) return false;
+    }
+    return true;
 }
 int main() {
-#ifndef ONLIEN_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("1.in", "r", stdin);
 #endif
     cin >> n;
     for(int i = 0; i < n; i++) {
-        int k, t;
-        cin >> k >> t;
-        string s = _Itoa(t, k);
-        int flag = 0;
-        for(int i = 0; i < s.size(); i++) {
-            if(s[i] != '1' && (s[i] != ((k - 1) + '0') && s[i - 1] != '0') && s[i] != '0') {
-                flag = 1;
-                cout << "No" << endl;
-                break;
-            }
+        cin >> w >> t;
+        memset(res, 0, sizeof(res));
+        int pos = 0;
+        while(t) {
+            res[++pos] = t % w;
+            t /= w;
         }
-        if(flag == 0) cout << "Yes" << endl; 
+        cout << (check() ? "Yes" : "No") << endl;
     }
     return 0;
 }

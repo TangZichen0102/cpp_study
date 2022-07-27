@@ -14,7 +14,7 @@ int dfs(int N, int K)
 int t, n, k;
 int main()
 {
-#ifndef ONLIEN_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("2.in", "r", stdin);
 #endif
     cin >> t;

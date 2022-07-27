@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-map<int, int> m;
+unordered_map<int, int> m;
 int main() {
     int n, k;
     cin >> n;
@@ -14,7 +14,8 @@ int main() {
     for(int i = 0; i < k; i++) {
         int _t;
         cin >> _t;
-        cout << m[_t] << " ";
+        if(i == k - 1) cout << m[_t];
+        else cout << m[_t] << " ";
     }
     return 0;
 }
