@@ -83,7 +83,8 @@
         "xmemory0": "cpp",
         "queue": "cpp",
         "stack": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "。cpp": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
