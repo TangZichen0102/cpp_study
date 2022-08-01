@@ -84,7 +84,9 @@
         "queue": "cpp",
         "stack": "cpp",
         "xiosbase": "cpp",
-        "。cpp": "cpp"
+        "。cpp": "cpp",
+        "filesystem": "cpp",
+        "xlocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
