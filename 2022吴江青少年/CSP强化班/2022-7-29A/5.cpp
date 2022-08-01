@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+int n;
 int tl(int x, int y) //为X后面添Y个零
 {
     while (y--)
-            x *= 10;
+        x *= 10;
     return x;
 }
 int initNine(int n) //返回N个9
@@ -19,9 +21,8 @@ int gcd(int a, int b)
     return b ? gcd(b, a % b) : a;
 }
 
-int main()
+void fun()
 {
-    freopen("5.in", "r", stdin);
     int a1 = 0, a2 = 0, a3 = 0, a, b;
     string s, s2, s3;
     scanf("%d.", &a1);
@@ -50,5 +51,15 @@ int main()
     }
     int g = gcd(a, b);
     cout << a / g << "/" << b / g << endl;
+}
+
+int main()
+{
+    freopen("5.in", "r", stdin);
+    cin >> n;
+    while(n--)
+    {
+        fun();
+    }
     return 0;
 }
