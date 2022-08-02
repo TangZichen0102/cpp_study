@@ -13,18 +13,13 @@ int main() {
     if(is_prime(n) && is_prime(n - 6)) cout << "Yes" << endl << n - 6;
     else if(is_prime(n) && is_prime(n + 6)) cout << "Yes" << endl << n + 6;
     else {
-        cout << "No" << endl
+        cout << "No" << endl;
         if(n == 0 || n == 1) {
             cout << 5;
             return 0;
         }
-        while(n++) {
-            if(is_prime(n) && is_prime(n - 6) || 
-               is_prime(n) && is_prime(n + 6)) {
-                    cout << n;
-                    return 0;
-               }
-        }
+        while(!(is_prime(n) && is_prime(n - 6) || is_prime(n) && is_prime(n + 6))) n++;
+        cout << n;
     }
     return 0;
 }
