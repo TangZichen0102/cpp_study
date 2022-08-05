@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-unordered_map<string, int> mp;
+map<string, int> mp;
 string name[1100];
 int maxn = INT_MIN;
 string maxname;
