@@ -9,7 +9,7 @@ int main() {
         string s1, s2;
         cin >> s1 >> s2;
         int a;
-        m[s2][s1] += a;
+        m[s1][s2] += a;
     }
     for(auto i:m) {
         cout << i.first << endl;
