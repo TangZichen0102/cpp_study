@@ -44,27 +44,26 @@ void qsort(int low, int high)
         qsort(i, high);
 }
 
-void quick_sort(int l, int r)
+void quick_sort(int q[],int l, int r)
 {
      if (l >= r) return;
 
-    int i = l - 1, j = r + 1, x = a[l + r >> 1];
+    int i = l - 1, j = r + 1, x = q[l + r >> 1];
     while (i < j)
     {
-        do i ++ ; while (a[i] < x);
-        do j -- ; while (a[j] > x);
-        if (i < j) swap(a[i], a[j]);
+        do i ++ ; while (q[i] < x);
+        do j -- ; while (q[j] > x);
+        if (i < j) swap(q[i], q[j]);
     }
 
-    quick_sort( l, j);
-    quick_sort(j + 1, r);
+    quick_sort(q, l, j),quick_sort(q, j + 1, r);
 }
 
 int main()
 {
     print(10);
     // qsort(0, 9);
-    quick_sort(0,9);
+    quick_sort(a,0,9);
     print(10);
     return 0;
 }
