@@ -5,16 +5,18 @@ int t, n;
 int a[2000005];
 string f;
 int main() {
+#ifndef ONLINE_JUDGE
+    freopen("3.in", "r", stdin);
+#endif
     cin >> t;
     for(int i = 0; i < t; i++) {
         cin >> n;
-        for(int i = 0; i < n; i++) cin >> a[i];
+        for(int j = 0; j < n; j++) cin >> a[j];
         cin >> f;
         for(int j = 0; j < f.size(); j++) {
-            if(f[j] == '1') 
-                if(a[j] > a[j + 1]) swap(a[j], a[j + 1]);
+            if(f[j] == '1')  swap(a[j], a[j + 1]);
         }
-        int flag;
+        int flag = 1;
         for(int j = 0; j < n - 1; j++) {
             // cout << a[j];
             if(a[j] > a[j + 1]) {
