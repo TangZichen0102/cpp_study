@@ -13,10 +13,11 @@ int main() {
             int _t;
             cin >> _t;
             cnt += _t;
-            sum1 += floor((double)(_t / m));
+            sum1 += (int)(ceil((double)(_t / m)));
+            cout << (int)(ceil((double)(_t / m))) << " ";
         } 
         cout << sum1 << " ";
-        sum2 = ceil((double)(cnt / m));
+        sum2 = (int)(ceil((double)(cnt / m)));
         cout << sum2 << endl;
     }
     return 0;
