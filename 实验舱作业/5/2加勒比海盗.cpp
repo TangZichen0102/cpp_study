@@ -10,7 +10,11 @@ int main() {
     sort(a, a + n);
     for(int i = 0; i < n; i++) {
         cnt += a[i];
-        if(cnt > )
+        if(cnt > c) {
+            cout << sum;
+            return 0;
+        }
+        sum++;
     }
     return 0;
 }
