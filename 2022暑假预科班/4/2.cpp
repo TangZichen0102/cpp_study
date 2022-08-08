@@ -8,6 +8,10 @@ int main() {
     freopen("2.in", "r", stdin);
 #endif
     cin >> n >> m;
+    if(n == 1 && m == 1) {
+        cout << 0;
+        return 0;
+    }
     // cout << n << " " << m << endl;
     while(true) {
         if(n <= 0 || m <= 0) {
