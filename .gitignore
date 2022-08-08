@@ -13,6 +13,7 @@
 !*.code-snippets
 !.**/*.code-snippets
 !*.cpp
+!*.in
 !*.cxx
 !*.c
 !*.cc
@@ -21,6 +22,7 @@
 !*.vcproj
 !*.sln
 !.**/*.cpp
+!.**/*.in
 !.**/*.cxx
 !.**/*.c
 !.**/*.cc
