@@ -6,6 +6,8 @@
 .DS_Store
 
 
+*
+!.gitignore
 !.vscode/settings.json
 !.vscode/cpp.code-snippets
 !*.code-snippets
