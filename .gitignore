@@ -7,6 +7,7 @@
 
 
 !.vscode/settings.json
+!.vscode/cpp.code-snippets
 !*.code-snippets
 !*.cpp
 !*.txt
