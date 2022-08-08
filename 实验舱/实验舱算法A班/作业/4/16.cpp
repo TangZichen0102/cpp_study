@@ -22,6 +22,7 @@ int main()
             if (j == s.size() - 1) break;
         }
         while (t--) s.pop_back();
+        if(s.size() == 0) s.push_back('0');
         while (s.size() > 1 && s[0] == '0') s.erase(s.begin());
         S[cnt++] = s;
     }
