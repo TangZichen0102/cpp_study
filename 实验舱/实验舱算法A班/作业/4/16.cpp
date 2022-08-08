@@ -1,31 +1,28 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-string S[10005];
-int cnt;
+char c[15];
+int len, s, t;
 int main()
 {
-    int x;
-    cin >> x;
-    for (int i = 0; i < x; i++) {
-        string s;
-        int t;
-        cin >> s >> t;
-        while (t > 0) {
-            int j = 0;
-            for (; j < s.size() - 1; j++)
-                if (s[j] > s[j + 1]) {
-                    s.erase(j, 1);
-                    t--;
+    cin >> t;
+    while (t--) {
+        cin >> c >> s;
+        len = strlen(c);
+        while (s--) {
+            for (int i = 0; i <= len - 2; i++)
+                if (c[i] > c[i + 1]) {
+                    for (int j = i; j <= len - 2; j++) c[j] = c[j + 1];
                     break;
                 }
-            if (j == s.size() - 1) break;
+            len--;
         }
-        while (t--) s.pop_back();
-        if(s.size() == 0) s.push_back('0');
-        while (s.size() > 1 && s[0] == '0') s.erase(s.begin());
-        S[cnt++] = s;
+        int i = 0;
+        while (i <= len - 1 && c[i] == '0') i++;
+        if (i == len) cout << 0;
+        else
+            for (int j = i; j <= len - 1; j++) cout << c[j];
+        cout << endl;
     }
-    for(int i = 0; i < cnt; i++) cout << S[i] << endl; 
     return 0;
 }
