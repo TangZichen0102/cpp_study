@@ -1,16 +1,36 @@
 
 
-*.*
 /.vscode/launch.json
 /.vscode/tasks.json
 .DS_Store
 
 
+*
+!.gitignore
+!*/
 !.vscode/settings.json
 !.vscode/cpp.code-snippets
 !*.code-snippets
+!.**/*.code-snippets
 !*.cpp
-!*.txt
+!*.cxx
+!*.c
+!*.cc
+!*.hpp
+!*.h
+!*.vcproj
+!*.sln
+!.**/*.cpp
+!.**/*.cxx
+!.**/*.c
+!.**/*.cc
+!.**/*.hpp
+!.**/*.h
+!.**/*.vcproj
+
 !*.js
+!.**/*.js
 !*.md
+!.**/*.md
 !*.pdf
+!.**/*.pdf
