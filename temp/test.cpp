@@ -5,20 +5,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-LL n, m, sum;
+int n, a;
+
+template <class T>
+void read(T &r)
+{
+   r = 0;
+   char c = getchar();
+   bool f = false;
+   while (c < 48 || c > 57)
+   {
+      if (c == 45)
+         f ^= 1;
+      c = getchar();
+   }
+   while (c >= 48 && c <= 57)
+   {
+      r = 10 * r + c - 48;
+      c = getchar();
+   }
+   if (f)
+      r = -r;
+}
+
+#include <bits/stdc++.h>
+using namespace std;
 int main()
 {
-   vector<int> v(3);
-
-   v[0] = 1, v[1] = 2, v[2] = 3;
-   v.erase(v.end() - 1);
-   for (auto i : v)
+   scanf("%d", &n);
+   scanf("%d", &a);
+   while (--n)
    {
-      cout << i << " ";
+      int b;
+      read(b);
+      printf("%d ", b);
    }
+   printf("%d", a);
    return 0;
 }
-/*
-样例及推导
-
-*/
