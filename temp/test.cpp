@@ -6,16 +6,21 @@
 using namespace std;
 typedef long long LL;
 LL n, m, sum;
+const int MAXN = 1e8 + 10;
+int a[MAXN];
 int main()
 {
-   vector<int> v(3);
-
-   v[0] = 1, v[1] = 2, v[2] = 3;
-   v.erase(v.end() - 1);
-   for (auto i : v)
+#ifndef ONLINE_JUDGE
+    freopen("test.in", "r", stdin);
+#endif
+   cin >> n;
+   cin >> a[0];
+   for (int i = 1; i < n;i++)
    {
-      cout << i << " ";
+      scanf("%d", &a[i]);
+      printf("%d ", a[i]);
    }
+   cout << a[0];
    return 0;
 }
 /*
