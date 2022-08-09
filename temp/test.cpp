@@ -5,25 +5,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-LL n, m, sum;
-const int MAXN = 1e8 + 10;
-int a[MAXN];
+int n, a;
+
+template <class T>
+void read(T &r)
+{
+   r = 0;
+   char c = getchar();
+   bool f = false;
+   while (c < 48 || c > 57)
+   {
+      if (c == 45)
+         f ^= 1;
+      c = getchar();
+   }
+   while (c >= 48 && c <= 57)
+   {
+      r = 10 * r + c - 48;
+      c = getchar();
+   }
+   if (f)
+      r = -r;
+}
+
+#include <bits/stdc++.h>
+using namespace std;
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("test.in", "r", stdin);
-#endif
-   cin >> n;
-   cin >> a[0];
-   for (int i = 1; i < n;i++)
+   scanf("%d", &n);
+   scanf("%d", &a);
+   while (--n)
    {
-      scanf("%d", &a[i]);
-      printf("%d ", a[i]);
+      int b;
+      read(b);
+      printf("%d ", b);
    }
-   cout << a[0];
+   printf("%d", a);
    return 0;
 }
-/*
-样例及推导
-
-*/
