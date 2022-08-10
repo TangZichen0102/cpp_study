@@ -1,22 +1,25 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int n;
-long long qmi(int a, int k, int m) {
-    long long res = a;
-    while(k) {
-        if(k & 1) res = a * res % m;
-        a = (long long) a * a % m;
-        k >>= 1;
+typedef long long LL;
+LL n, m, sum;
+
+int qmi(int a, int b, int p)
+{
+    int res = 1 % p;
+    while (b)
+    {
+        if (b & 1)
+            res = res * a % p;
+        a = (LL)a * a % p;
+        b >>= 1;
     }
-    return res;
+    return res % p;
 }
-int main() {
-    cin >> n;
-    while(n--) {
-        int a, k, m;
-        cin >> a >> k >> m;
-        cout << qmi(a, k, m);
-    }
+
+int main()
+{
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    cin >> n ;
     return 0;
 }
