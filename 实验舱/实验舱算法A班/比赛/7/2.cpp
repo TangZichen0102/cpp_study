@@ -2,30 +2,32 @@
 
 using namespace std;
 typedef long long LL;
-int n;
-LL ans;
-const int maxn = 1e7 + 10;
-int primes[maxn], cnt, st[maxn], el[maxn];
+const int N = 1e7 + 10;
+int primes[N], euler[N], cnt;
+bool st[N];
 void get_euler(int n) {
     for(int i = 2; i <= n; i++) {
         if(!st[i]) {
             primes[cnt++] = i;
-            el[i] = i - 1;
+            euler[i] = i - 1;
         }
         for(int j = 0; primes[j] <= n / i; j++) {
-            st[primes[j] * i] = true;
-            if(i % primes[j]) {
-                el[primes[j] * i] = el[i] * primes[j];
+            int t = primes[j] * i;
+            st[t] = true;
+            if (i % primes[j] == 0) {
+                euler[t] = euler[i] * primes[j];
                 break;
             }
-            el[primes[j] * i] = el[i] * (primes[j] - 1);
+            euler[t] = euler[i] * (primes[j] - 1);
         } 
     }
 }
 int main() {
+    int n;
     cin >> n;
-    get_euler(n);
-    for(int i = 2; i <= n; i++) ans += el[i];
-    cout << ans;
+    get_eulers(n);
+    LL res = 0;
+    for (int i = 2; i <= n; i++) res += euler[i];
+    cout << res << endl;
     return 0;
 }

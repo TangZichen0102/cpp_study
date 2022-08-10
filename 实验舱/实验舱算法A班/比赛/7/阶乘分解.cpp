@@ -7,56 +7,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-
 const int MAXN = 1e6 + 10;
-
 LL n, m, sum;
 int primes[MAXN], cnt;
 bool st[MAXN];
-
 int ans[MAXN];
-
-void get_primes(int n)
-{
-    for (int i = 2; i <= n; i++)
-    {
-        if (!st[i])
-            primes[cnt++] = i;
-
-        for (int j = 0; primes[j] <= n / i; j++)
-        {
+void get_primes(int n) {
+    for (int i = 2; i <= n; i++) {
+        if (!st[i]) primes[cnt++] = i;
+        for (int j = 0; primes[j] <= n / i; j++) {
             int t = primes[j] * i;
             st[t] = true;
-            if (i % primes[j] == 0)
-                break;
+            if (i % primes[j] == 0) break;
         }
     }
 }
-
-int main()
-{
+int main() {
 #ifndef ONLINE_JUDGE
-    freopen("1696.in", "r", stdin);
+    freopen("阶乘分解.in", "r", stdin);
 #endif
     cin >> n;
     get_primes(n);
-
-    for (int i = 0; i < cnt; i++)
-    {
+    for (int i = 0; i < cnt; i++) {
         int t = n;
-        if (primes[i] > t)
-            break;
-        while (t)
-        {
+        if (primes[i] > t) break;
+        while (t) {
             ans[primes[i]] += t / primes[i];
             t /= primes[i];
         }
     }
     for (int i = 0; i < cnt; i++)
-    {
-        if (ans[primes[i]] > 0)
-            cout << primes[i] << " " << ans[primes[i]] << endl;
-    }
+        if (ans[primes[i]] > 0) cout << primes[i] << " " << ans[primes[i]] << endl;
     return 0;
 }
 /*
