@@ -43,15 +43,11 @@ int main()
 {
     int n;
     cin >> n;
-
     get_eulers(n);
-
     LL res = 0;
     for (int i = 2; i <= n; i++)
         res += euler[i];
-
     cout << res << endl;
-
     return 0;
 }
 
