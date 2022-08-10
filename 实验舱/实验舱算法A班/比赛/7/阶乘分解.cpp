@@ -43,13 +43,15 @@ int main()
 
     for (int i = 0; i < cnt; i++)
     {
-        int t = n;
-        if (primes[i] > t)
-            break;
+        int t = n, pi = primes[i];
+
+        // if (primes[i] > t)
+        //     break;
+
         while (t)
         {
-            ans[primes[i]] += t / primes[i];
-            t /= primes[i];
+            ans[pi] += t / pi;
+            t /= pi;
         }
     }
     for (int i = 0; i < cnt; i++)
