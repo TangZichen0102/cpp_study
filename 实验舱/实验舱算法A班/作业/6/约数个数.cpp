@@ -7,9 +7,9 @@ ll n, m = 1, x;
 void fun(int n) {
     for (int i = 2; i <= sqrt(n); i++)
         while (n % i == 0) {
-        a[i]++;
-        n /= i;
-    }
+            a[i]++;
+            n /= i;
+        }
     if (n > 1) a[n]++;
 }
 int main() {
