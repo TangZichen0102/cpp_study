@@ -1,26 +1,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int a[1000005];
-bool cmp(int a, int b) {
-    return a > b;
-}
-int gcd(int a, int b) {
-    return b ? gcd(b, a % b) : a;
-}
+int n, maxx, cnt;
+const int maxn = 5e6 + 10;
+bool c[maxn];
+int a[maxn], b[maxn];
 int main() {
-    int n;                     
     cin >> n;
-    for(int i = 0; i < n; i++) cin >> a[i];
-    sort(a, a + n, cmp);
-    if(gcd(a[0], a[1]) == 1) cout << 0;
-    else {
-        for(int i = gcd(a[0], a[1]) - 1; i >= 1; i--) {
-            if(a[0] % i == 0 && a[1] % i == 0) {
-                cout << i;
-                return 0;
+    for(int i = 1; i <= n; i++) cin >> a[i], b[a[i]]++, maxx = max(maxx, a[i]);
+    for(int i = maxx; i; i--) {
+        cnt = 0;
+        for(int j = 1; i * j <= maxx; j++) {
+            if(c[i * j]) {
+                return printf("%d", i), 0;
             }
+            cnt += b[i * j];
         }
+        if(cnt > 1) c[i] = 1;
     }
+    cout << 0;
     return 0;
 }

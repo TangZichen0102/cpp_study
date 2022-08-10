@@ -3,7 +3,7 @@
 using namespace std;
 set<int, greater<int> > s;
 int n;
-int a[100005];
+int a[200005];
 int main() {
     cin >> n;
     for(int i = 0; i < n; i++) cin >> a[i];
