@@ -40,25 +40,17 @@ int main()
 #endif
     cin >> n;
     get_primes(n);
-
-    for (int i = 0; i < cnt; i++)
-    {
+    for (int i = 0; i < cnt; i++) {
         int t = n, pi = primes[i];
-
         // if (primes[i] > t)
         //     break;
-
-        while (t)
-        {
+        while (t) {
             ans[pi] += t / pi;
             t /= pi;
         }
     }
     for (int i = 0; i < cnt; i++)
-    {
-        if (ans[primes[i]] > 0)
-            cout << primes[i] << " " << ans[primes[i]] << endl;
-    }
+        if (ans[primes[i]] > 0) cout << primes[i] << " " << ans[primes[i]] << endl;
     return 0;
 }
 /*
@@ -74,7 +66,7 @@ out
 
 取得一个n!阶乘中有多少个素数m因子
 sum=0
-while(m)
+while(n)
 {
     sum = sum + n/m;
     n/=m;
