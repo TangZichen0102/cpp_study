@@ -20,9 +20,8 @@ void fac(int n) {
 }
 int main() {
     cin >> n;
-    for(int i = 2; i <= n; i++) fac(i);
-    for(int i = 2; i <= maxx; i++) {
+    for(int i = 1; i <= n; i++) fac(i);
+    for(int i = 1; i <= maxx; i++)
         if(vis[i]) cout << i << " " << vis[i] << endl;
-    }
     return 0;
 }
