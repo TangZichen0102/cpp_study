@@ -1,6 +1,7 @@
 /*
 题目来源
-
+#2802、最大的出栈序列
+https://oj.shiyancang.cn/Problem/2802.html
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -34,48 +35,50 @@ int main()
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &m);
-        a[i] = b[i] = m;
+        a[i] = m;
     }
-    sort(b, b + n, greater<int>());
-    printab();
-    int i = 0, j = 0;
-    for (; i < n; i++)
+
+    int maxR = 0;
+    for (int i = n - 1; i >= 0; i--)
     {
-        if (a[i] < b[j])
+        // cout << maxR<< " " << a[i] << endl;
+        maxR = max(maxR, a[i]);
+        b[i - 1] = maxR;
+    }
+
+    // printab();
+
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] >= b[i])
         {
-            // printf("a[i]:%d  b[j]:%d\n", a[i], b[j]);
-            st.push(a[i]);
+            printf("%d ", a[i]);
+            while (1)
+            {
+                if (st.size() == 0)
+                    break;
+
+                // printf("\ni:%d top:%d\n", i, st.top());
+                if (st.top() >= b[i])
+                {
+                    printf("%d ", st.top());
+                    st.pop();
+                }
+                else
+                    break;
+            }
         }
         else
         {
-            printf("%d ", a[i]);
-            j++;
-            while (st.size() > 0)
-            {
-                if (st.top() == b[j])
-                {
-                    m = st.top();
-                    st.pop();
-                    printf("%d ", m);
-                    j++;
-                }
-
-                if (i < n - 1 && st.top() > a[i + 1])
-                {
-                    m = st.top();
-                    st.pop();
-                    printf("%d ", m);
-                    j++;
-                }
-            }
+            st.push(a[i]);
         }
     }
-    while (st.size())
-    {
-        m = st.top();
-        st.pop();
-        printf("%d ", m);
-    }
+
+    // while (st.size())
+    // {
+    //     printf("||%d ", st.top());
+    //     st.pop();
+    // }
 
     return 0;
 }
