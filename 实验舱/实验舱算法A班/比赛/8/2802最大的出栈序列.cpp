@@ -50,12 +50,23 @@ int main()
         {
             printf("%d ", a[i]);
             j++;
-            while (st.size() > 0 && st.top() >= b[j])
+            while (st.size() > 0)
             {
-                m = st.top();
-                st.pop();
-                printf("%d ", m);
-                j++;
+                if (st.top() == b[j])
+                {
+                    m = st.top();
+                    st.pop();
+                    printf("%d ", m);
+                    j++;
+                }
+
+                if (i < n - 1 && st.top() > a[i + 1])
+                {
+                    m = st.top();
+                    st.pop();
+                    printf("%d ", m);
+                    j++;
+                }
             }
         }
     }
