@@ -42,7 +42,7 @@ string exp(string s)
 int main()
 {
 #ifndef ONLINE_JUDGE
-    freopen("1.in", "r", stdin);
+    freopen("sanmu.in", "r", stdin);
 #endif
     cin >> n;
     while (n--)
