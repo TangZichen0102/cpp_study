@@ -81,11 +81,11 @@ int main()
             sort(c.begin(), c.end());
 
             if (s1 == "A")
-                for (int j = 0; j < c.size(); j++)
-                    a.push({j, c[j].x});
-            else if (s1 == "B")
-                for (int j = 0; j < c.size(); j++)
-                    b.push({j, c[j].x});
+                for (auto j : c)
+                    a.push(j);
+            else
+                for (auto j : c)
+                    b.push(j);
             c.clear();
         }
     }
