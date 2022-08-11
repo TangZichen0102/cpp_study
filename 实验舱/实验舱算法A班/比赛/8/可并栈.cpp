@@ -13,11 +13,12 @@ const int MAXN = 2e5 + 10;
 struct node
 {
     int t, x;
-    operator<(const node &b) const
-    {
-        return t < b.t;
-    }
 };
+
+bool cmp(node x,node y)
+{
+    return x.t<y.t;
+}
 
 stack<node> a, b;
 vector<node> c;
@@ -67,7 +68,7 @@ void merge(int i)
         b.pop();
     }
 
-    sort(c.begin(), c.end());
+    sort(c.begin(), c.end(),cmp);
 
     if (s1 == "A")
         for (auto j : c)

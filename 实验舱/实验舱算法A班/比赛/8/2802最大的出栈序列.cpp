@@ -34,7 +34,7 @@ int main()
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &m);
+        scanf("%lld", &m);
         a[i] = m;
     }
 
