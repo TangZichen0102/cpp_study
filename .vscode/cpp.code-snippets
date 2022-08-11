@@ -9,7 +9,7 @@
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
 			"typedef long long LL;",
-			"LL n, m, sum;",
+			"int n;",
 			"int main()",
 			"{",
 			"#ifndef ONLINE_JUDGE",

@@ -1,0 +1,35 @@
+{
+	"Print to console": {
+		"prefix": "cpp2", //在新建立的页面中输入C++就会有智能提示，Tab就自动生成好了
+		"body": [
+			"/*",
+			"题目来源",
+			"",
+			"*/",
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"",
+			"#define IOS ios::sync_with_stdio(false), cin.tie(0)",
+			"#define _for(i, a, b) for (int i = (a); i < (b); ++i)",
+			"#define _rep(i, a, b) for (int i = (a); i <= (b); ++i)",
+			"#define br puts(\"\")",
+			"",
+			"typedef long long LL;",
+			"int n;",
+			"int main()",
+			"{",
+			"	IOS;",
+			"#ifndef ONLINE_JUDGE",
+			"    freopen(\".in\", \"r\", stdin);",
+			"#endif",
+			"   cin >> n;",
+			"   return 0;",
+			"}",
+			"/*",
+			"样例及推导",
+			"",
+			"*/",
+		],
+		"description": "A cpp file template." //用户输入后智能提示的内容（你可以用中文写“生成C++模板”）
+	}
+}
