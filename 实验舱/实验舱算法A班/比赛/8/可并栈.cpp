@@ -22,6 +22,61 @@ struct node
 stack<node> a, b;
 vector<node> c;
 
+void push(int i)
+{
+    string ss;
+    int x;
+    cin >> ss >> x;
+    if (ss == "A")
+    {
+        a.push({i, x});
+    }
+    else
+    {
+        b.push({i, x});
+    }
+}
+
+void pop(int i)
+{
+    string ss;
+    cin >> ss;
+    if (ss == "A")
+    {
+        printf("%d\n", a.top().x);
+        a.pop();
+    }
+    else
+    {
+        printf("%d\n", b.top().x);
+        b.pop();
+    }
+}
+void merge(int i)
+{
+    string s1, s2;
+    cin >> s1 >> s2;
+    while (a.size())
+    {
+        c.push_back(a.top());
+        a.pop();
+    }
+    while (b.size())
+    {
+        c.push_back(b.top());
+        b.pop();
+    }
+
+    sort(c.begin(), c.end());
+
+    if (s1 == "A")
+        for (auto j : c)
+            a.push(j);
+    else
+        for (auto j : c)
+            b.push(j);
+    c.clear();
+}
 int main()
 {
     cin.tie(0);
@@ -35,59 +90,11 @@ int main()
         string s;
         cin >> s;
         if (s == "push")
-        {
-            string ss;
-            int x;
-            cin >> ss >> x;
-            if (ss == "A")
-            {
-                a.push({i, x});
-            }
-            else
-            {
-                b.push({i, x});
-            }
-        }
+            push(i);
         else if (s == "pop")
-        {
-            string ss;
-            cin >> ss;
-            if (ss == "A")
-            {
-                printf("%d\n", a.top().x);
-                a.pop();
-            }
-            else
-            {
-                printf("%d\n", b.top().x);
-                b.pop();
-            }
-        }
+            pop(i);
         else if (s == "merge")
-        {
-            string s1, s2;
-            cin >> s1 >> s2;
-            while (a.size())
-            {
-                c.push_back(a.top());
-                a.pop();
-            }
-            while (b.size())
-            {
-                c.push_back(b.top());
-                b.pop();
-            }
-
-            sort(c.begin(), c.end());
-
-            if (s1 == "A")
-                for (auto j : c)
-                    a.push(j);
-            else
-                for (auto j : c)
-                    b.push(j);
-            c.clear();
-        }
+            merge(i);
     }
     return 0;
 }
