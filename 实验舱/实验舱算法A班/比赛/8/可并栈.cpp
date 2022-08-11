@@ -13,6 +13,10 @@ const int MAXN = 2e5 + 10;
 struct node
 {
     int t, x;
+    bool operator<(const node &b) const
+    {
+        return t < b.t;
+    }
 };
 
 bool cmp(node x,node y)
@@ -21,7 +25,8 @@ bool cmp(node x,node y)
 }
 
 stack<node> a, b;
-vector<node> c;
+
+priority_queue<node> c;
 
 void push(int i)
 {
@@ -42,15 +47,20 @@ void pop(int i)
 {
     string ss;
     cin >> ss;
-    if (ss == "A")
+    if (ss == "A" && a.size())
     {
         printf("%d\n", a.top().x);
         a.pop();
     }
-    else
+    else if (ss == "B" && b.size())
     {
         printf("%d\n", b.top().x);
         b.pop();
+    }
+    else
+    {
+        printf("%d\n", c.top().x);
+        c.pop();
     }
 }
 void merge(int i)
@@ -59,24 +69,14 @@ void merge(int i)
     cin >> s1 >> s2;
     while (a.size())
     {
-        c.push_back(a.top());
+        c.push(a.top());
         a.pop();
     }
     while (b.size())
     {
-        c.push_back(b.top());
+        c.push(b.top());
         b.pop();
     }
-
-    sort(c.begin(), c.end(),cmp);
-
-    if (s1 == "A")
-        for (auto j : c)
-            a.push(j);
-    else
-        for (auto j : c)
-            b.push(j);
-    c.clear();
 }
 int main()
 {
