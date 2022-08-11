@@ -2,27 +2,26 @@
 
 using namespace std;
 set<int, greater<int> > s;
-int n;
-int a[200005];
 int main() {
+    int n;
     cin >> n;
-    for(int i = 0; i < n; i++) cin >> a[i];
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            if(i != j) s.insert(a[i] % a[j]);
-        }
+    while(n--) {
+        int _t;
+        cin >> _t;
+        s.insert(_t);
     }
-    if(s.size() < 2) {
+    if(s.size() <= 1) {
         cout << -1;
         return 0;
     }
+    int a, b, c;
     int cnt = 0;
-    for(auto i: s) {
-        if(cnt == 1) {
-            cout << i;
-            return 0;
-        }
-        else cnt++;
+    for(auto i:s) {
+        cnt++;
+        if(cnt == 1) a = i;
+        if(cnt == 2) b = i;
+        if(cnt == 3) c = i;
     }
+    cout << max(c, a % b);
     return 0;
 }
