@@ -2,8 +2,10 @@
 
 using namespace std;
 int n, a[200005];
+int sum;
 int maxx = -INT_MAX;
 int main() {
+    /*
     scanf("%d", &n);
     for(int i = 1; i <= n; i++) scanf("%d", &a[i]);
     for(int i = 0; i <= n - 1; i++) {
@@ -14,5 +16,14 @@ int main() {
         }
     }
     cout << max(0, maxx);
+    */
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+        sum += a[i];
+        if(sum < 0) sum = 0;
+        maxx = max(maxx, sum);
+    }
+    cout << maxx;
     return 0;
 }

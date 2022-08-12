@@ -14,13 +14,13 @@ typedef long long LL;
 const int mod = 1e9 + 7;
 int n;
 typedef pair<int, int> PII;
-PII exp(string s, int deep)
+double exp(string s)
 {
     cout << "exp:" << s << endl;
     int sum = 0;
     if (s == "")
     {
-        return {1, 1};
+        return 0.5;
     }
     int cnt1 = 0, cnt2 = 0, l = 0, r = 0;
     for (int i = 0; i < s.size(); i++)
@@ -40,10 +40,10 @@ PII exp(string s, int deep)
 
         if (cnt1 == cnt2)
         {
-            printf("cnt1:%d cnt2:%d l:%d r:%d deep:%d\n", cnt1, cnt2, l, r, deep);
+            // printf("cnt1:%d cnt2:%d l:%d r:%d deep:%d\n", cnt1, cnt2, l, r, deep);
             cnt1 = cnt2 = 0;
-            auto ans = exp(s.substr(l + 1, r - l - 1), deep + 1);
-            sum += exp(s.substr(l + 1, r - l - 1), deep + 1);
+            auto d = exp(s.substr(l + 1, r - l - 1)) * 2.0;
+            sum += d;
         }
     }
 
@@ -60,7 +60,7 @@ int main()
     string s;
     cin >> s;
 
-    cout << exp(s, 0);
+    cout << exp(s);
     return 0;
 }
 /*
