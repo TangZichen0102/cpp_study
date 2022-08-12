@@ -6,22 +6,22 @@ int a[1005][1005];
 bool check1() {
     for(int j = 1; j <= n; j++) {
         int sum = 0;
-        for(int k = 1; k <= n; k++) sum += a[j][k];
-        if(sum > 1) {
-            // cout << "check1: " << sum << endl;
-             return false;
-        }
+        for(int k = 1; k <= n; k++) sum += a[k][j];
+        if(sum > 1) return false;
     }
     return true;
 }
 bool check2() {
-    for(int j = 1; j <= n; j++) {
+    for(int k = n; k >= 1; k--) {
         int sum = 0;
-        for(int k = 1; k <= n; k++) sum += a[k][j];
-        if(sum > 1) {
-            // cout << "check2: " << sum << endl;
-             return false;
-        }
+        int i = k, j = 1;
+        while(i > n) sum += a[i++][j++];
+        if(sum > 1)  return false;
+    }
+    for(int k = 2; k <= n; k++) {
+        int sum = 0;
+        for(int i = 1, j = k; i <= n; i++, j++) sum += a[i][j];
+        if(sum > 1) return false;
     }
     return true;
 }
@@ -29,39 +29,13 @@ bool check3() {
     for(int k = n; k >= 1; k--) {
         int sum = 0;
         int i = k, j = 1;
-        while(i > n) sum += a[i++][j++];
-        if(sum > 1) {
-            // cout << "check3: " << sum << endl;
-            return false;
-        }
-    }
-    for(int k = 2; k <= n; k++) {
-        int sum = 0;
-        for(int i = 1, j = k; i <= n; i++, j++) sum += a[i][j];
-        if(sum > 1) {
-            // cout << "check3: " << sum << endl;
-             return false;
-        }
-    }
-    return true;
-}
-bool check4() {
-    for(int k = n; k >= 1; k--) {
-        int sum = 0;
-        int i = k, j = 1;
         while(i > n) sum += a[j++][i++];
-        if(sum > 1) {
-            // cout << "check4: " << sum << endl;
-             return false;
-        }
+        if(sum > 1) return false;
     }
     for(int k = 2; k <= n; k++) {
         int sum = 0;
         for(int i = 1, j = k; i <= n; i++, j++) sum += a[j][i];
-        if(sum > 1) {
-            // cout << "check4: " << sum << endl;
-             return false;
-        }
+        if(sum > 1) return false;
     }
     return true;
 }
@@ -78,7 +52,7 @@ int main() {
             cin >> _t;
             a[j][_t] = 1;
         }
-        if(check1() && check2() && check3() && check4()) cout << "YES" << endl;
+        if(check1() && check2() && check3()) cout << "YES" << endl;
         else cout << "NO" << endl;
     }
     return 0;

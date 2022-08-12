@@ -1,44 +1,14 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-template <class T>
-void read(T &r)
-{
-   r = 0;
-   char c = getchar();
-   bool f = false;
-   while (c < 48 || c > 57)
-   {
-      if (c == 45)
-         f ^= 1;
-      c = getchar();
-   }
-   while (c >= 48 && c <= 57)
-   {
-      r = 10 * r + c - 48;
-      c = getchar();
-   }
-   if (f)
-      r = -r;
-}
-
-#include <bits/stdc++.h>
-using namespace std;
-int main()
-{
-   scanf("%d", &n);
-   scanf("%d", &a);
-   while (--n)
-   {
-      int b;
-      read(b);
-      printf("%d ", b);
-   }
-   printf("%d", a);
+int n;
+char a[12];
+int main() {
+   cin >> n;
+   for(int i = 1; i <= n; i++) cin >> a[i];
+   do {
+      for(int i = 1; i <= n; i++) cout << a[i] << " ";
+      cout << endl;
+   }while(next_permutation(a + 1, a + n + 1));
    return 0;
 }
-/*
-样例及推导
-
-*/
