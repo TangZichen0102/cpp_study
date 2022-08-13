@@ -13,6 +13,10 @@ int main()
     {
         a[i] = a[i - 1] * 2 % mod;
     }
+    // for (LL i = 0; i * 2 <= s.size(); i++)
+    // {
+    //     printf("%3d:%3d\n",i,a[i]);
+    // }
     for (LL i = 0; i < s.size(); i++)
     {
         if (s[i] == '(')
