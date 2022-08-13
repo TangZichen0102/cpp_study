@@ -12,13 +12,13 @@ using namespace std;
 
 typedef long long LL;
 int n, cnt;
-int a[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+int s[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 int getT(int l, int r)
 {
     int t = 0;
     for (int i = l; i < r; i++)
-        t = t * 10 + a[i];
+        t = t * 10 + s[i];
     return t;
 }
 void go()
@@ -28,14 +28,14 @@ void go()
     {
         for (int j = i + 1; j < len; j++)
         {
-            int left = getT(0, i);
-            int up = getT(i, j);
-            int down = getT(j, len);
-            if (up % down != 0)
+            int a = getT(0, i);
+            int b = getT(i, j);
+            int c = getT(j, len);
+            if (b % c != 0)
                 continue;
-            if (left + up / down == n)
+            if (a + b / c == n)
             {
-                printf("%d=%d+%d/%d\n", n, left, up, down);
+                printf("%d=%d+%d/%d\n", n, a, b, c);
                 cnt++;
             }
         }
@@ -51,7 +51,7 @@ int main()
     do
     {
         go();
-    } while (next_permutation(a, a + 9));
+    } while (next_permutation(s, s + 9));
     cout << cnt << endl;
     return 0;
 }
