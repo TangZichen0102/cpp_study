@@ -2,27 +2,26 @@
 
 using namespace std;
 int cnt;
+int vis[10];
 int main() {
     int n;
     cin >> n;
-    if(n == 1) {
-        cout << 1;
+    if(n <= 10) {
+        cout << n;
         return 0;
     }
     for(int i = 1;; i++) {
-        string s = to_string(i);
-        int vis[15];
         memset(vis, 0, sizeof(vis));
         int flag = 0;
-        for(int i = 0; i < s.size(); i++) {
-            int d = s[i] - '0';
-            if(vis[d] == 1) {
+        int t = i;
+        while(t) {
+            if(vis[t % 10] == 1) {
                 flag = 1;
                 break;
             }
-            vis[d] = 1;
+            vis[t % 10] = 1;
+            t /= 10;
         }
-        
         if(!flag) cnt++;
         if(cnt == n) {
             cout << i;

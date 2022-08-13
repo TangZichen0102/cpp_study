@@ -8,7 +8,8 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false), cin.tie(0)
 typedef long long LL;
 int n;
-double exp(string s, int deep)
+typedef pair<int, int> PII;
+PII exp(string s, int deep)
 {
     cout << "exp:" << s << endl;
     int sum = 0;
@@ -34,10 +35,10 @@ double exp(string s, int deep)
 
         if (cnt1 == cnt2)
         {
+            printf("cnt1:%d cnt2:%d l:%d r:%d deep:%d\n", cnt1, cnt2, l, r, deep);
             cnt1 = cnt2 = 0;
-            auto ans = exp(s.substr(l + 1, r - l - 1), deep + 1) * 2.0;
-
-            sum += ans;
+            auto ans = exp(s.substr(l + 1, r - l - 1), deep + 1);
+            sum += exp(s.substr(l + 1, r - l - 1), deep + 1);
         }
     }
     return sum;
@@ -51,6 +52,7 @@ int main()
 #endif
     string s;
     cin >> s;
+
     cout << exp(s, 0);
     return 0;
 }
