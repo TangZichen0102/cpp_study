@@ -9,10 +9,13 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false), cin.tie(0)
 typedef long long LL;
 int n;
+
+const int mod = 1e9 + 7;
+
 double exp(string s, int deep)
 {
-    // cout << "exp:" << s << endl;
-    int sum = 0;
+    cout << "exp:" << s << endl;
+    LL sum = 0;
     if (s.empty())
     {
         return 0.5;
@@ -40,7 +43,7 @@ double exp(string s, int deep)
             sum += ans;
         }
     }
-    return sum;
+    return sum % mod;
 }
 
 int main()
@@ -52,7 +55,7 @@ int main()
     string s;
     cin >> s;
 
-    cout << exp(s, 0);
+    printf("%d",exp(s, 0));
     return 0;
 }
 /*
