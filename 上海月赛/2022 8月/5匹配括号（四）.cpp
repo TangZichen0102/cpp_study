@@ -1,6 +1,7 @@
 /*
 题目来源
-
+独立数
+https://iai.sh.cn/problem/683
 */
 #include <bits/stdc++.h>
 using namespace std;
