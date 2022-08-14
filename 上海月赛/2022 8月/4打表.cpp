@@ -21,8 +21,8 @@ int main()
     {
         if (n > xx.first)
         {
-            i = xx.second;
-            cnt = xx.first - 1;
+            i = xx.second + 1;
+            cnt = xx.first;
         }
         else if (n == xx.first)
         {
