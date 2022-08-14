@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n;
+int m;
 long long a[200010];
 int premax = INT_MIN;
 int main()
@@ -9,34 +9,24 @@ int main()
 #ifndef ONLINE_JUDGE
     freopen("3.in", "r", stdin);
 #endif
-    cin >> n;
-    while (n--)
+    cin >> m;
+    while (m--)
     {
-        int t;
-        scanf("%d", &t);
+        int n;
+        scanf("%d", &n);
         memset(a, 0, sizeof(a));
-        for (int j = 0; j < t; j++)
+        for (int j = 0; j < n; j++)
             scanf("%lld", a + j);
         string f;
         cin >> f;
         int pos = 0;
-        while (pos < t)
-        {
+        while (pos < n) {
             int start = pos;
-            while (pos < t && f[pos] == '1')
-                pos++;
-            if (start != pos)
-            {
-                sort(a + start, a + pos + 1); //上面POS已经+1了，所以这里只要再加1
-                // printf("start:%d pos:%d \n", start, pos);
-                // for (int k = 0; k < t; k++)
-                //     cout << a[k] << " ";
-                // puts("");
-            }
+            while (pos < n && f[pos] == '1') pos++;
+            if(start != pos) sort(a + start, a + pos + 1);
             pos++;
         }
-
-        cout << (is_sorted(a, a + t) ? "YES" : "NO") << endl;
-        }
+        cout << (is_sorted(a, a + n) ? "YES" : "NO") << endl;
+    }
     return 0;
 }
