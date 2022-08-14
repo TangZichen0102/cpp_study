@@ -1,63 +1,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n;
 struct node {
     int x, y;
-    bool flag;
-}a[100005];
-int x, y;
-int ans;
-bool cmp(node a, node b) {
-    if(a.y == b.y) return a.x < b.x;
-    return a.y > b.y;
+}a[200010];
+int n, ans;
+int vis[200010];
+bool cmp(node x, node y) {
+    if (x.x == y.x) return x.y < y.y;
+    return x.x < y.x; 
 }
 int main() {
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x, y;
-        cin >> x >> y;
-        a[i].x = x;
-        a[i].y = y;
-    }   
-    sort(a, a + n, cmp);
-    while(true) { 
-        bool flag2 = false;
-        for(int i = 0; i < n; i++)
-            if(a[i].flag == false) {
-                flag2 = true;
-                x = a[i].x;
-                y = a[i].y;
-                break;
-            }
-        if(flag2 == false) {
-            // cout << "1";
-            break; // 当所有气球都被射完时，跳出
-        }
-        cout << x << " " << y << endl;
-        bool flag3 = false;
-        for(int i = 0; i < n; i++)
-            if(x <= a[i].x && y == a[i].y && a[i].flag == false) {
-                y--;
-                x = a[i].x;
-                a[i].flag = true;
-                flag3 = true;
-                // cout << "2";
-                break; // 这一行搜到气球
-            }
-        if(flag3 == false) {
-            ans++;
-            for(int i = 0; i < n; i++) {
-                if(a[i].flag == false) {
-                    x = a[i].x;
-                    y = a[i].y;
-                    // cout << "3";
-                    break;
-                }
-            }
-            cout << endl;
-        }
-        x++;
+    for(int i = 1; i <= n; i++) cin >> a[i].x >> a[i].y;
+    sort(a + 1, a + n + 1, cmp);
+    for (int i = 1; i <= n; i++) {
+        if (vis[a[i].y]) vis[a[i].y]--; 
+        else ans++;
+        vis[a[i].y - 1]++;
     }
     cout << ans;
     return 0;
