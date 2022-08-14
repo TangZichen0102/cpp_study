@@ -27,7 +27,7 @@ int main()
                 pos++;
             if (start != pos)
             {
-                sort(a + start, a + pos + 1);
+                sort(a + start, a + pos + 1); //上面POS已经+1了，所以这里只要再加1
                 // printf("start:%d pos:%d \n", start, pos);
                 // for (int k = 0; k < t; k++)
                 //     cout << a[k] << " ";
@@ -37,7 +37,6 @@ int main()
         }
 
         cout << (is_sorted(a, a + t) ? "YES" : "NO") << endl;
-        
-    }
+        }
     return 0;
 }
