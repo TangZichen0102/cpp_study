@@ -44,18 +44,18 @@ int main()
 
     LL ans = n; //最多有N头牛说谎;
 
-    for (int i = n, r = 0; i; i--)
+    for (int i = n, g = 0; i; i--) // g存后缀和
     {
         int j = i, t = 0;
-        while (j && a[j].y == a[i].y)
+        while (j && a[j].y == a[i].y) // Pi可能相等的情况
         {
             if (a[j].x == 'G')
                 t++;
             j--;
         }
-        ans = min(ans, l[j] + r);
-        r += t;
-        i = j + 1;
+        ans = min(ans, l[j] + g);
+        g += t;
+        i = j + 1; // 循环结束是--,所以加回来;
     }
     cout << ans;
 
