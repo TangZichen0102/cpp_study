@@ -3,22 +3,15 @@
 
 */
 #include <bits/stdc++.h>
+
 using namespace std;
+int searchleft(vector<int> &v, int left, int right, int x) {
+   while(left < right) {
+      int mif = (left + right) >> 1'
+   }
+}
+int main() {
 
-#define IOS ios::sync_with_stdio(false), cin.tie(0)
-#define _for(i, a, b) for (int i = (a); i < (b); ++i)
-#define _rep(i, a, b) for (int i = (a); i <= (b); ++i)
-#define br puts("")
-
-typedef long long LL;
-int n;
-int main()
-{
-   IOS;
-// #ifndef ONLINE_JUDGE
-//     freopen(".in", "r", stdin);
-// #endif
-   cout << -INT_MAX << " " << INT_MIN;
    return 0;
 }
 /*
