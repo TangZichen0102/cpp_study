@@ -42,20 +42,35 @@ int main()
             l[i]++;
     }
 
-    LL ans = n; //最多有N头牛说谎;
+    // for (int i = 1; i <= n; i++)
+    // {
+    //     cout << l[i] << " ";
+    // }
+    // puts("");
 
-    for (int i = n, r = 0; i; i--)
+    for (int i = n; i; i--)
     {
-        int j = i, t = 0;
-        while (j && a[j].y == a[i].y)
-        {
-            if (a[j].x == 'G')
-                t++;
-            j--;
-        }
-        ans = min(ans, l[j] + r);
-        r += t;
-        i = j + 1;
+        g[i] = g[i + 1];
+        if (a[i].x == 'G')
+            g[i]++;
+    }
+
+    // for (int i = 1; i <= n; i++)
+    // {
+    //     cout << g[i] << " ";
+    // }
+    // puts("");
+
+    int ans = n; //最多有N头牛说谎;
+
+    for (int i = n; i; i--)
+    {
+        int cnt = 0;
+        if (i > 1)
+            cnt += l[i - 1];
+        if (i < n)
+            cnt += g[i + 1];
+        ans = min(cnt, ans);
     }
     cout << ans;
 
