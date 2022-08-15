@@ -26,7 +26,7 @@ int C(int a, int b, int p)
     int res = 1;
     for (int i = 1, j = a; i <= b; i++, j--)
     {
-        res = (LL)res * a & p;
+        res = (LL)res * a % p;
         res = (LL)res * qmi(i, p - 2, p) % p;
     }
     return res;
@@ -37,6 +37,7 @@ int main()
 #ifndef ONLINE_JUDGE
     // freopen(".in", "r", stdin);
 #endif
+    cout << qmi(2, 10, mod) << endl;
     cout << C(5, 3, mod);
     return 0;
 }
