@@ -1,14 +1,20 @@
+/*
+题目来源
+
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
-int n;
-char a[12];
+int searchleft(vector<int> &v, int left, int right, int x) {
+   while(left < right) {
+      int mif = (left + right) >> 1'
+   }
+}
 int main() {
-   cin >> n;
-   for(int i = 1; i <= n; i++) cin >> a[i];
-   do {
-      for(int i = 1; i <= n; i++) cout << a[i] << " ";
-      cout << endl;
-   }while(next_permutation(a + 1, a + n + 1));
+
    return 0;
 }
+/*
+样例及推导
+
+*/
