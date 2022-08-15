@@ -67,9 +67,21 @@ int main()
     {
         int cnt = 0;
         if (i > 1)
-            cnt += l[i - 1];
+        {
+            int j = i - 1;
+            while (a[j].y == a[i].y)
+                j--;
+            cnt += l[j];
+        }
+
         if (i < n)
-            cnt += g[i + 1];
+        {
+            int j = i + 1;
+            while (a[j].y == a[i].y)
+                j++;
+            cnt += g[j];
+        }
+
         ans = min(cnt, ans);
     }
     cout << ans;
