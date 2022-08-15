@@ -2,22 +2,26 @@
 
 using namespace std;
 int n, s;
+int cnt1[150], cnt2[150];
+int sum;
 int main() {
     cin >> n >> s;
-    map<char, int> m1, m2;
     for (int i = 1; i <= n; i++) {
         int a;
         s = (s * 345) % 19997;
         a = 97 + (s % 26);
-        m1[a]++;
+        cnt1[a]++;
     }
     for (int i = 1; i <= n; i++) {
         int b;
         s = (s * 345) % 19997;
         b = 97 + (s % 26);
-        m2[b]++;
+        cnt2[b]++;
     }
-    
-    cout << m1.size() - m2.size();
+    for(int i = 1; i <= 130; i++) {
+        sum += abs(cnt1[i] - cnt2[i]);
+        // cout << abs(cnt1[i] - cnt2[i]) << " ";
+    }
+    cout << sum / 2;
     return 0;
 }
