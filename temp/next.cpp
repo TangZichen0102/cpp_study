@@ -24,7 +24,7 @@ int main()
     //     cout << i.first << endl;
     // }
 
-    string n = "10";
+    string n = "223372036854775807";
 
     vector<int> v;
     for (int i = 0; i < n.size(); i++)
