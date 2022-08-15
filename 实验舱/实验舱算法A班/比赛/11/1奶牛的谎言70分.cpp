@@ -19,7 +19,7 @@ struct node
     {
         return y < xx.y;
     }
-} a[1005];
+} a[100005];
 
 int main()
 {
