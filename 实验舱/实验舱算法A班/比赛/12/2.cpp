@@ -24,17 +24,11 @@ int main() {
                 cout << cnt << " ";
             }
             else {
-                a[i][j] = 0;
-                cnt = 0;
+                a[i][j] = cnt = 0;
                 dfs(i, j);
                 a[i][j] = 1;
                 cout << cnt << " ";
             }
-            for(int k = 0; k < n; k++) {
-                for(int l = 0; l < m; l++) cout << a[i][j] << " ";
-                cout << endl;
-            }
-            cout << endl;
             for(int k = 0; k < n; k++)
                 for(int l = 0; l < m; l++) a[i][j] = b[i][j];
         }
