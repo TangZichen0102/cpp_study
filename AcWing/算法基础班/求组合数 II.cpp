@@ -53,7 +53,7 @@ int main()
     while (n--)
     {
         int a, b;
-        cin >> a >> b;
+        cin >> a >> b >> p;
         cout << (((LL)fact[a] * infact[b] % mod) * infact[a - b] % mod) << endl;
     }
     return 0;
