@@ -5,13 +5,15 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int searchleft(vector<int> &v, int left, int right, int x) {
-   while(left < right) {
-      int mif = (left + right) >> 1'
-   }
-}
+int n, t;
+int a[10005];
 int main() {
-
+   cin >> n;
+   for(int i = 0; i < n; i++) {
+      cin >> t;
+      for(int j = 0; j < t; j++) cin >> a[j];
+      
+   }
    return 0;
 }
 /*

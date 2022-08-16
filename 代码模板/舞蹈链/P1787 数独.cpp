@@ -11,7 +11,7 @@ inline int encode(int x,int r,int c)
 {
     return x*9*9+(r-1)*9+c;
 }
-inline auto decode(int n)
+inline int decode(int n)
 {
     n--;
     int x,r,c;
