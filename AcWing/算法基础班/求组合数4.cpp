@@ -84,7 +84,7 @@ int main()
         int p = primes[i];
         sum[i] = get(a, p) - get(b, p) - get(a - b, p);
 
-        printf("sum[%d]:%d\n", primes[i], sum[i]);
+        // printf("sum[%d]:%d\n", primes[i], sum[i]);
     }
 
     vector<int> res;
