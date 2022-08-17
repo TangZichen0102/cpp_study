@@ -13,7 +13,7 @@
 			"int main()",
 			"{",
 			"#ifndef ONLINE_JUDGE",
-			"    //freopen(\".in\", \"r\", stdin);",
+			"    freopen(\".in\", \"r\", stdin);",
 			"#endif",
 			"   cin >> n;",
 			"   return 0;",
