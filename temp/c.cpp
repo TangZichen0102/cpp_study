@@ -1,47 +1,76 @@
-/*
-题目来源
-
-*/
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long LL;
-int n;
-const int mod = 1e9 + 7;
 
-int qmi(int a, int b, int p)
+const int N = 5010;
+
+int primes[N], cnt;
+int st[N], sum[N];
+
+void get_primes(int n)
 {
-    int res = 1;
-    while (b)
+    for (int i = 2; i <= n; i++)
     {
-        if (b & 1)
-            res = (LL)res * a % p;
-        a = (LL)a * a % p;
-        b >>= 1;
+        if (!st[i])
+            primes[cnt++] = i;
+        for (int j = 0; primes[j] <= n / i; j++)
+        {
+            st[primes[j] * i] = true;
+            if (i % primes[j] == 0)
+                break;
+        }
+    }
+}
+
+int get(int n, int p)
+{
+    int res = 0;
+    while (n)
+    {
+        res += n / p;
+        n /= p;
     }
     return res;
 }
 
-int C(int a, int b, int p)
+vector<int> mul(vector<int> a, int b)
 {
-    int res = 1;
-    for (int i = 1, j = a; i <= b; i++, j--)
+    vector<int> c;
+    int t = 0;
+    for (int i = 0; i < a.size(); i++)
     {
-        res = (LL)res * a % p;
-        res = (LL)res * qmi(i, p - 2, p) % p;
+        t += a[i] * b;
+        c.push_back(t % 10);
+        t /= 10;
     }
-    return res;
+    while (t)
+    {
+        c.push_back(t % 10);
+        t /= 10;
+    }
+    return c;
 }
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    // freopen(".in", "r", stdin);
-#endif
-    cout << qmi(2, 10, mod) << endl;
-    cout << C(5, 3, mod);
+    int a, b;
+    cin >> a >> b;
+
+    get_primes(a);
+
+    for (int i = 0; i < cnt; i++)
+    {
+        int p = primes[i];
+        sum[i] = get(a, p) - get(b, p) - get(a - b, p);
+    }
+
+    vector<int> res;
+    res.push_back(1);
+    for (int i = 0; i < cnt; i++)
+        for (int j = 0; j < sum[i]; j++)
+            res = mul(res, primes[i]);
+
+    for (int i = res.size() - 1; i >= 0; i--)
+        cout << res[i];
+
     return 0;
 }
-/*
-样例及推导
-
-*/
