@@ -2,17 +2,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, m, t;
-queue<int> q1, q2;
-int main() {
-   cin >> n >> m >> t;
-   for(int i = 1; i <= n; i++) q1.push(i);
-   for(int i = 1; i <= m; i++) q2.push(i);
-   for(int i = 1; i <= t; i++) {
-      cout << q1.front() << " " << q2.front() << endl;
-      q1.push(q1.front());
-      q2.push(q2.front());
-      q2.pop(), q1.pop();
+int get_num(int a[], int n) {
+   int sum = 0, l = 0, maxl = 0, maxr = 0, maxsum = 0;
+   for(int i = 0; i < n; i++) {
+      if(sum >= 0) sum += a[i];
+      else {
+         sum = a[i];
+         l = i;
+      }
+      if(sum > maxsum) {
+         maxsum = sum;
+         maxl = l, maxr = i;
+      }
    }
+   cout << maxl << " " << maxr << endl;
+}
+int main() {
+   int a[10] = {1, 2, 3, 4, 5, -1000, 1, 1}, n = 8;
+   get_num(a, n);
    return 0;
 }
