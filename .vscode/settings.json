@@ -106,7 +106,18 @@
         "concepts": "cpp",
         "ios": "cpp",
         "locale": "cpp",
-        "__functional_base": "cpp"
+        "__functional_base": "cpp",
+        "xthread": "cpp",
+        "xfacet": "cpp",
+        "xlocbuf": "cpp",
+        "xlocinfo": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp",
+        "xmemory": "cpp",
+        "xstddef": "cpp",
+        "xtr1common": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

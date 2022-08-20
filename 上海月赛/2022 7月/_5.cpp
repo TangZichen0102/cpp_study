@@ -10,7 +10,7 @@ int main()
 
     int maxRow = 4 * n - 3, maxCol = 6 * n - 5, len = 3 * n - 2;
 
-    int a[200][300];
+    int a[500][500];
 
     // 画三角形下边
     for (int i = 1; i <= maxCol; i++)
