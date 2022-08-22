@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int BinSearch(vector<int> &a,int x){//从左向右寻找第一个小于x的数 
+int BinSearch(vector<int> &a,int x){//锟斤拷锟斤拷锟斤拷锟斤拷寻锟揭碉拷一锟斤拷小锟斤拷x锟斤拷锟斤拷 
 	int left=0,right=a.size()-1;
 	while(left<right){
 		int mid=(left+right)/2;
@@ -18,9 +18,9 @@ int main(){
 	istringstream sin(s);
 	while(!sin.eof()){
 		int x;sin>>x;
-		v.push_back(x); //读入数据 
+		v.push_back(x); //锟斤拷锟斤拷锟斤拷锟斤拷 
 	}
-	vector<int> LDS;//最长不递增子序列 
+	vector<int> LDS;//锟筋长锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷 
 	LDS.push_back(v[0]);len++; 
 	for(int i=1;i<v.size();i++){
 		if(v[i]<=LDS.back()){
@@ -33,7 +33,7 @@ int main(){
 	}		
 	cout<<len<<endl;
 	len=0;
-	vector<int> LIS;//最长递增子序列 
+	vector<int> LIS;//锟筋长锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷 
 	LIS.push_back(v[0]);len++;
 	for(int i=1;i<v.size();i++){
 		if(v[i]>LIS.back()){
@@ -44,6 +44,6 @@ int main(){
 			LIS[k]=v[i];
 		}
 	}		
-	cout<<len<<endl;//一个序列最少的最长不递增子序列数量等于其最长递增子序列的长度
+	cout<<len<<endl;
 	return 0;
 }
