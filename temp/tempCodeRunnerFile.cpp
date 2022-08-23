@@ -1,15 +1,18 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+map<string, int> m;
+string s[1005];
+int n, st, k;
 int main() {
-  int n;
-  cin >> n;
-  for(int i = 0; i <= n / i; i++) {
-    string s = to_string(i * i);
-    string _t = s;
-    reverse(s.begin(), s.end());
-    if(s == _t) cout << s << endl;
-  }
+    cin >> n >> k >> st;
+    for(int i = 1; i <= n; i++) cin >> s[i];
+    if(st > n) cout << "Keep going..." << endl;
+    else {
+        for(int i = st; i <= n;) {
+            if(!m[s[i]]) cout << s[i] << endl, m[s[i]]++, i += k;
+            else i++;
+        }
+    }
     return 0;
 }
