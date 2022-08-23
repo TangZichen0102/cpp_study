@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+string s;
 int main() {
-  string s;
-  cin >> s;
-  char c1, c2;
-  cin >> c1 >> c2;
-  for(int i = 0; i < s.size(); i++) {
-    if(s[i] == c1) cout << c2;
-    else cout << s[i];
-  }
-  return 0;
+    cin >> s;
+    int d1 = atoi(s.c_str());
+    reverse(s.begin(), s.end());
+    int d2 = atoi(s.c_str());
+    cout << d1 + d2;
+    return 0;
 }
