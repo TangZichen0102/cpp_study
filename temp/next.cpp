@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-string s;
+int n, m, sum;
 int main() {
-    cin >> s;
-    int d1 = atoi(s.c_str());
-    reverse(s.begin(), s.end());
-    int d2 = atoi(s.c_str());
-    cout << d1 + d2;
-    return 0;
+  cin >> n >> m;
+  for(int i = n; i <= m; i++) {
+    if(i % 2 == 1) sum += i;
+  }
+  cout << sum;
+  return 0;
 }
