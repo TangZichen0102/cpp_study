@@ -1,16 +1,20 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+string _Itoa(int n, int m) {
+    string _s;
+    do{
+        int t = n % m;
+        if(t >= 0 && t <= 9) _s += t + '0';
+        else _s += t - 10 + 'a';
+        n /= m;
+    }while(n != 0);
+    reverse(_s.begin(), _s.end());
+    return _s;
+}
 int main() {
-  long long n, sum = 0;
-  cin >> n;
-  string s = "";
-  for(int i = 1; i <= n; i++) {
-    s = s + "2";
-    // cout << s << endl;
-    sum += atoi(s.c_str());
-  }
-  cout << sum;
-  return 0;
+    int n, m;
+    cin >> n >> m;
+    cout << _Itoa(n, m);
+    return 0;
 }
