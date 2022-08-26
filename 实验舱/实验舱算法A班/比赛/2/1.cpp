@@ -1,19 +1,12 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int cnt;
+long long n;
+long long ans;
 int main() {
-    int n;
     cin >> n;
-    while(n != 1) {
-        cnt++;
-        if(n % 2 == 1) n = n * 3 + 1;
-        else n = n / 2;
-        if(cnt == 1000) {
-            cout << "No";
-            return 0;
-        }
-    }
-    cout << cnt;
+    for(long long i = 2; i <= sqrt(2 * n); i++)
+        if((2 * n + i - i * i) % (2 * i) == 0) ans++;
+    cout << ans;
     return 0;
 }

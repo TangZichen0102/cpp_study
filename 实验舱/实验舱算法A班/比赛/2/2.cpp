@@ -2,24 +2,25 @@
 
 using namespace std;
 long long n, m;
-int x, y;
-bool mp[100005][100005];
+bool visR[100005], visC[100005];
+long long cntR, cntL;
+long long ans;
 int main() {
     cin >> n >> m;
-    long long ans = n * n;
-    for(long long i = 1; i <= m; i++) {
+    while(m--) {
+        long long x, y;
         cin >> x >> y;
-        long long sum = 0;
-        if(!mp[x][y]) {
-            mp[x][y] = true;
-            sum++;
+        if(!visR[x]) {
+            visR[x] = true;
+            cntR++;
+            ans += n - cntL;
         }
-        for(long long j = 1; j <= n; j++) {
-            if(!mp[j][y]) sum++, mp[j][y] = !mp[j][y];
-            if(!mp[x][j]) sum++, mp[x][j] = !mp[x][j];
+        if(!visC[y]) {
+            visC[y] = true;
+            cntL++;
+            ans += n - cntR;
         }
-        cout << ans - sum << endl;
-        ans -= sum;
+        cout << n * n - ans << endl;
     }
     return 0;
 }
