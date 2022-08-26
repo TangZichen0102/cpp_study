@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, m, sum;
+
 int main() {
-  cin >> n >> m;
-  for(int i = n; i <= m; i++) {
-    if(i % 2 == 1) sum += i;
+  int n;
+  cin >> n;
+  for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= (n - i) * 2; j++) cout << " ";
+    for(int j = 1; j <= i * 2 - 1; j++) cout << "*";
+    cout << endl;
   }
-  cout << sum;
   return 0;
 }
