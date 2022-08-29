@@ -1,17 +1,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-map<string, int> m;
-string s[1005];
-int n, st, k;
+int cnt;
 int main() {
-    cin >> n >> k >> st;
-    for(int i = 1; i <= n; i++) cin >> s[i];
-    if(st > n) cout << "Keep going..." << endl;
-    else {
-        for(int i = st; i <= n;) {
-            if(!m[s[i]]) cout << s[i] << endl, m[s[i]]++, i += k;
-            else i++;
+    int n;
+    cin >> n;
+    string a;
+    while(cin >> a) {
+        if(a == "926718") {
+            cout << "yes";
+            return 0;
+        }
+        else {
+            cnt++;
+            if(cnt == n) {
+                cout << "lock";
+                return 0;
+            }
+            cout << "no" << endl;
         }
     }
     return 0;
