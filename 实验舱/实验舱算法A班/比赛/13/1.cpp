@@ -1,23 +1,43 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, m, smax;
-string s[100005];
-stack<char> q;
-int a;
+int n, m, s;
+vector<queue<char> > tr;
+queue<char> q;
+stack<char> bac;
+char c;
+int x = 0;
+void clear() {
+    while(q.size()) q.pop();
+}
 int main() {
-    cin >> n >> m >> smax;
-    for(int i = 0; i < n; i++) cin >> s[i];
-    while(cin >> a) {
-        if(a == -1) return 0;
-        if(a == 0 && !q.empty()) cout << q.top(), q.pop();
-        else {
-            if(q.size() >= smax) {
-                cout << q.top();
-                q.pop();
+    cin >> n >> m >> s;
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cin >> c;
+            q.push(c);
+        }
+        tr.push_back(q);
+        clear();
+    }
+    while(true)  {
+        cin >> x;
+        if(x == -1) break;
+        if(x == 0) {
+            if(!bac.empty()) {
+                cout << bac.top();
+                bac.pop();
             }
-            q.push(s[a - 1][0]);
-            s[a - 1].erase(0, 1);
+        }
+        else if(!tr[x - 1].empty() && bac.size() < s) {
+            bac.push(tr[x - 1].front());
+            tr[x - 1].pop();
+        }
+        else if(!tr[x - 1].empty() && bac.size() == s) {
+            cout << bac.top();
+            bac.pop();
+            bac.push(tr[x - 1].front());
+            tr[x - 1].pop();
         }
     }
     return 0;
