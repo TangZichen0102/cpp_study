@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-int n, m, cnt2;
+int n, m, mx, cnt2;
 const int MAXM = 5e6 + 5;
 int a[200005], v[MAXM], ans[MAXM], vis[MAXM];
 
@@ -25,12 +25,14 @@ int main()
 {
     cin >> n >> m;
 
-    get_primes(m);
-
     for (int i = 0; i < n; i++)
     {
         scanf("%d", a + i);
+        mx = max(m, a[i]);
     }
+
+    get_primes(mx);
+
     sort(a, a + n, greater<int>());
     for (int i = 0; i < n; i++)
     {
@@ -48,21 +50,29 @@ int main()
                 {
                     for (int j = 0; primes[j] <= a[i]; j++)
                     {
-                        int pj = primes[j];
-                        if (a[i] % pj == 0)
+                        if (vis[a[i]] == 0)
                         {
-                            v[pj] = 1;
-                            while (a[i] % pj == 0)
+                            int pj = primes[j];
+                            if (a[i] % pj == 0)
                             {
+                                v[pj] = 1;
+                                while (a[i] % pj == 0)
+                                {
+                                    vis[a[i]] = 1;
+                                    a[i] /= pj;
+                                }
+                            }
+                            if (st[a[i]] == 0)
+                            {
+                                v[a[i]] = 1;
                                 vis[a[i]] = 1;
-                                a[i] /= pj;
                             }
                         }
-                    }
-                    if (a[i] > 1)
-                    {
-                        v[a[i]] = 1;
-                        vis[a[i]] = 1;
+                        if (a[i] > 1)
+                        {
+                            v[a[i]] = 1;
+                            vis[a[i]] = 1;
+                        }
                     }
                 }
             }
@@ -74,14 +84,14 @@ int main()
         if (v[primes[i]] == 1)
         {
             // cout << i << endl;
-            for (int j = 1; j * primes[i] < m; j++)
+            for (int j = 1; j * primes[i] <= m; j++)
             {
                 ans[j * primes[i]] = 1;
             }
         }
     }
 
-    for (int i = 1; i < m; i++)
+    for (int i = 1; i <= m; i++)
     {
         if (ans[i] == 0)
         {
@@ -90,7 +100,7 @@ int main()
     }
 
     cout << cnt2 << endl;
-    for (int i = 1; i < m; i++)
+    for (int i = 1; i <= m; i++)
     {
         if (ans[i] == 0)
         {
