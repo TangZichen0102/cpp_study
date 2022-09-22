@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+string dp = "0123456789abcdefghijklmnopqrstuvwxyz";
 string _Itoa(int n, int m) {
     string _s;
     do{
         int t = n % m;
-        if(t >= 0 && t <= 9) _s += t + '0';
-        else _s += t - 10 + 'a';
+        _s += dp[t];
         n /= m;
     }while(n != 0);
     reverse(_s.begin(), _s.end());
