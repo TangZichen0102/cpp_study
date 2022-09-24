@@ -11,7 +11,8 @@ long long qmi(long long a, int k)
     long long res = 1;
     while (k)
     {
-        if (k & 1) res = (LL)res * a;
+        if (k & 1)
+            res = (LL)res * a;
         k >>= 1, a = (LL)a * a;
     }
     return res;
@@ -46,7 +47,7 @@ int main()
         for (int i = l - 1, j = 0; i >= 0; i--, j++)
         {
             // cout << n[i];
-            ans += dp2[n[i]] * qmi(M, j);
+            ans += dp2[n[i]] * pow(M, j);
             // cout << ans << endl;
         }
         // cout << ans << endl;
