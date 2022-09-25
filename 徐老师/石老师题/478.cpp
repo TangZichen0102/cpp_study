@@ -70,5 +70,33 @@ int main()
 }
 /*
 样例及推导
-
+#include<bits/stdc++.h>
+#define inf 0x7fffffff
+using namespace std;
+inline int read()
+{
+    int x=0;char ch=getchar();
+    while(ch<'0'||ch>'9')ch=getchar();
+    while(ch>='0'&&ch<='9'){x=x*10+ch-'0';ch=getchar();}
+    return x;
+}
+int n,mx;
+int a[100005],cnt[1000005],s[1000005];
+int main()
+{
+    n=read();
+    for(int i=1;i<=n;i++)
+    {
+        a[i]=read();
+        cnt[a[i]]++;//类似桶 统计相同数字出现的次数
+        mx=max(a[i],mx);//找出最大的a[i].
+    }
+    for(int i=1;i<=mx;i++)
+        if(cnt[i])//若cnt[i]不为0 ，证明有i的存在
+        for(int j=i;j<=mx;j+=i)//注意是j=j+i；
+            s[j]+=cnt[i];//统计符合要求的个数
+    for(int i=1;i<=n;i++)
+        printf("%d\n",s[a[i]]-1); //输出结果
+    return 0;
+}
 */
