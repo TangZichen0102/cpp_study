@@ -1,4 +1,7 @@
 {
+    // "code-runner.executorMap": {
+    //     "cpp": "cd $dir && g++ \"$fileName\"  -o \"$fileNameWithoutExt\" -fexec-charset=GBK && & \"$dir$fileNameWithoutExt\"",
+    // },
     "files.associations": {
         "array": "cpp",
         "tuple": "cpp",
