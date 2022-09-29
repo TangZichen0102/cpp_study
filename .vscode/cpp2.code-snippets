@@ -2,10 +2,7 @@
 	"Print to console": {
 		"prefix": "cpp2", //在新建立的页面中输入C++就会有智能提示，Tab就自动生成好了
 		"body": [
-			"/*",
-			"题目来源",
-			"",
-			"*/",
+
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
 			"",
@@ -18,10 +15,6 @@
 			"   cin >> n;",
 			"   return 0;",
 			"}",
-			"/*",
-			"样例及推导",
-			"",
-			"*/",
 		],
 		"description": "A cpp file template." //用户输入后智能提示的内容（你可以用中文写“生成C++模板”）
 	}
