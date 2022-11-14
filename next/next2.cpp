@@ -1,21 +1,16 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-string s;
-stack<char> s2;
+int n, m;
 int main() {
-    getline(cin, s);
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '(') s2.push('(');
-        if(s[i] == ')') {
-            if(s2.empty()) {
-                cout << "NO";
-                return 0;
-            }
-            s2.pop();
-        }
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) cout << "+-";
+        cout << '+' << endl;
+        for (int j = 0; j < m; j++) cout << "|*";
+        cout << '|' << endl;
     }
-    if(!s2.empty()) cout << "NO";
-    else cout << "YES";
+    for (int j = 0; j < m; j++) cout << "+-";
+    cout << '+' << endl;
     return 0;
 }
