@@ -1,16 +1,27 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int n, m;
-int main() {
+set<int> s;
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("2.in", "r", stdin);
+#endif
+    int n, m;
     cin >> n >> m;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) cout << "+-";
-        cout << '+' << endl;
-        for (int j = 0; j < m; j++) cout << "|*";
-        cout << '|' << endl;
+    for (int i = 0; i < n; i++)
+    {
+        int _t;
+        cin >> _t;
+        s.insert(_t);
     }
-    for (int j = 0; j < m; j++) cout << "+-";
-    cout << '+' << endl;
+    for (int i = 0; i < m; i++)
+    {
+        int _t;
+        cin >> _t;
+        s.insert(_t);
+    }
+    for (auto i : s)
+        cout << i << " ";
     return 0;
 }
