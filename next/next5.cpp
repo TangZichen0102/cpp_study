@@ -1,14 +1,18 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+const long long mod = 1000000007;
+int n;
+long long sum = 1, ans;
+long long a[105];
 int main() {
-    int a, b;
-    cin >> a >> b;
-    if(a == b) {
-        cout << 1 << " " << a << " " << a << " " << a;
-        return 0;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+        sum = sum * a[i] % mod;
     }
-    cout << 1 <<  " " << b << " " << a << " " << b * (b - 1);
+    for(int i = 1; i <= sum / i; i++)
+        if(sum % i == 0) ans = ans + i + sum / i;
+    cout << ans;
     return 0;
 }
