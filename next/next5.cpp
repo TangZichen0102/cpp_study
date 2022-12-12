@@ -1,17 +1,26 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+stack<char> s;
 int main() {
-    for(int k = 1; k <= 1000; k++) {
-        for(int a = 1; a <= 1000; a++) {
-            for(int b = 1; b <= 1000; b++) {
-                if(a * k + b * k == 297 && k + k * a * b == 693) {
-                    cout << "a:" << a << " " << "b:" << b << " " << "k:" << k << endl;
-                    return 0;
-                }
+    string str;
+    cin >> str;
+    for(int i = 0; i < str.size(); i++) {
+        char c = str[i];
+        if(c == '@') break;
+        if(c == '(') s.push(c);
+        else if(c == ')') {
+            if(s.empty()) {
+                cout << "NO";
+                return 0;
             }
+            s.pop();
         }
     }
-    cout << "no answer";
+    if(!s.empty()) {
+        cout << "NO" << endl;
+        return 0;
+    }
+    cout << "YES";
     return 0;
 }
