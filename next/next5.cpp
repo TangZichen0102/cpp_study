@@ -1,26 +1,22 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-stack<char> s;
+int n, m, t, j, a[1000001];
 int main() {
-    string str;
-    cin >> str;
-    for(int i = 0; i < str.size(); i++) {
-        char c = str[i];
-        if(c == '@') break;
-        if(c == '(') s.push(c);
-        else if(c == ')') {
-            if(s.empty()) {
-                cout << "NO";
-                return 0;
-            }
-            s.pop();
+    cin >> n >> m;
+    for (int i = 1; i <= n - 1; i++) {
+        t = 0;
+        while (t < m) {
+            if (j == n) j = 0;
+            j++;
+            if (a[j] == 0) t++;
         }
+        a[j] = 1;
     }
-    if(!s.empty()) {
-        cout << "NO" << endl;
-        return 0;
-    }
-    cout << "YES";
+    for (int i = 1; i <= n; i++)
+        if (a[i] == 0) {
+            cout << i << endl;
+            return 0;
+        }
     return 0;
 }
