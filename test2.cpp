@@ -16,36 +16,28 @@ int read() {
     return x * f;
 }
 int t, n, s[1005], ans, p1, p2;
-int main()
-{
+int main() {
     t = read();
-    while (t--)
-    {
+    while (t--) {
         n = read();
-        for (int i = 1; i <= n; i++)
-            s[i] = read();
+        for (int i = 1; i <= n; i++) s[i] = read();
         sort(s + 1, s + n + 1);
         ans = 0;
-        while (n > 0)
-        {
-            if (n == 1)
-                ans += s[1];
-            else if (n == 2)
-                ans += s[2];
-            else if (n == 3)
-            {
+        while (n > 0) {
+            if (n == 1) ans += s[1];
+            else if (n == 2) ans += s[2];
+            else if (n == 3) {
                 ans += s[1] + s[2] + s[3];
                 break;
             }
-            else
-            {
+            else {
                 p1 = s[n] + s[n - 1] + 2 * s[1];
                 p2 = s[2] * 2 + s[1] + s[n];
                 ans += min(p1, p2);
             }
             n -= 2;
         }
-        printf("%d\n", ans);
+        cout << ans << endl;
     }
     return 0;
 }
