@@ -1,25 +1,21 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-long long n, s, sum, sumtime;
+long long n, s, ans, total;
 struct node {
     long long a, b, t;
-}nodes[100005];
+}aa[100005];
 bool cmp(node x, node y) {
-    if(x.t != y.t) return x.t < y.t;
-    else {
-        if(x.b != y.b) return x.b > y.b;
-        else return x.a > y.a;
-    }
+    return y.t * x.b > x.t * y.b;
 }
 int main() {
     cin >> n >> s;
-    for(int i = 0; i < n; i++) cin >> nodes[i].a >> nodes[i].b >> nodes[i].t;
-    sort(nodes, nodes + n, cmp);
-    for(int i = 0; i < n; i++) {
-        sumtime += nodes[i].t;
-        sum += nodes[i].a - sumtime * nodes[i].b;
+    for(long long i = 1; i <= n; i++) cin >> aa[i].a >> aa[i].b >> aa[i].t;
+    sort(aa + 1, aa + n + 1, cmp);
+    for(long long i = 1; i <= n; i++) {
+        total += aa[i].t;
+        ans += aa[i].a - total * aa[i].b;
     }
-    cout << sum;
+    cout << ans;
     return 0;
 }
