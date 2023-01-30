@@ -1,26 +1,21 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int tf[100005], wf[100005];
-int m, n, s, t = 1;
+int n, m, p, minn = INT_MAX;
+int a[100005];
 int main() {
-    cin >> m >> n;
-    for(int i = 1; i <= m; i++) cin >> tf[i];
-    for(int i = 1; i <= n; i++) cin >> wf[i];
-    sort(tf + 1, tf + 1 + m);
-    sort(wf + 1, wf + 1 + n);
-    for(int i = 1; i <= n; i++) {
-        if(tf[t] == 0) t++;
-        if(tf[t] < wf[i] && tf[t] != 0) {
-            wf[i] = 0;
-            t++;
-        }
+    cin >> n >> m >> p;
+    for(int i = 1; i <= p; i++) {
+        int _t;
+        cin >> _t;
+        a[_t] = 1;
+    } 
+    for(int i = 1; i <= n - m + 1; i++) {
+        int sum = 0;
+        for(int j = i; j <= i + m- 1; j++)
+            if(a[j] == 1) sum++;
+        minn = min(minn, sum);
     }
-    if(t <= m) {
-        cout << 0;
-        return 0;
-    }
-    for(int i = 1; i <= n; i++) s += wf[i];
-    cout << s;
+    cout << minn;
     return 0;
 }
